@@ -1,0 +1,89 @@
+import React, { Suspense, useMemo } from 'react';
+import ReactDOM from 'react-dom';
+import { Canvas, useLoader } from '@react-three/fiber';
+import { OrbitControls, Environment } from '@react-three/drei';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import Cube from '../geometry/Cube';
+import FlickeringStars from '../stars/FlickeringStars';
+import FlickeringPoints from '../stars/FlickeringPoints';
+import * as THREE from 'three';
+
+interface Props {
+  progress: 0 | 1 | 2 | 3
+}
+
+const CanvasScene = ({ progress }: Props) => {
+  const threejsDiv = document.getElementById('threejs');
+
+  // Генерация точек-звезд
+  const points = useMemo(() => {
+    const positions = [];
+    for (let i = 0; i < 2000; i++) {
+      const x = (Math.random() - 0.5) * 100;
+      const y = (Math.random() - 0.5) * 100;
+      const z = (Math.random() - 0.5) * 100;
+      positions.push([x, y, z]);
+    }
+    return positions;
+  }, []);
+
+  return threejsDiv ? ReactDOM.createPortal((
+    <>
+    <div className='background'>
+      <Suspense fallback={<div>Loading...</div>}>
+          <Canvas
+            // shadows
+            camera={{ position: [4, 4, 4], fov: 45 }}
+          >
+            <color attach="background" args={['#00172b']} />
+            
+            {/* Глобальный свет для базовой подсветки сцены */}
+            <ambientLight intensity={0.5} color="#fff" />
+
+            {/* Основной свет */}
+            <directionalLight
+              position={[10, 10, 10]}
+              intensity={1}
+              castShadow
+              shadow-mapSize={[2048, 2048]}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+
+            {/* Дополнительный свет */}
+            <pointLight position={[-5, 5, -5]} intensity={0.3} color="#ffccaa" />
+
+            {/* Куб */}
+            <Cube progress={progress} />
+
+            {/* Звёзды */}
+            <FlickeringStars />
+            <FlickeringPoints points={points} />
+            {/* <RandomStars /> */}
+            
+            {/* Туман */}
+            <fog attach="fog" args={['#000010', 10, 50]} />
+
+            {/* Управление камерой */}
+            <OrbitControls
+              autoRotate
+              autoRotateSpeed={0.6}
+              enablePan={false}
+              enableZoom={false}
+              // ref={orbitRef}
+            />
+
+            {/* Postprocessing */}
+            <EffectComposer>
+              <Bloom intensity={0.2} luminanceThreshold={0.6} luminanceSmoothing={0.2} />
+            </EffectComposer>
+          </Canvas>
+        </Suspense>
+      </div>
+    </>
+  ), threejsDiv) : null;
+};
+
+export default CanvasScene;

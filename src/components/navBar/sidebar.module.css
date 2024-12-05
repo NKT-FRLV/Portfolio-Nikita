@@ -1,0 +1,49 @@
+.sidebar {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100vh;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+.logoContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.logoLink {
+    width: 140px;
+    height: 50px;
+    overflow: hidden;
+    background-image: url('./src/assets/nkt-logo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.menu {
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.links {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: end;
+    gap: 1rem;
+}

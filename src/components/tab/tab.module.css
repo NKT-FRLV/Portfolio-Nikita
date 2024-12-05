@@ -1,0 +1,34 @@
+.tab {
+    display: flex;
+    justify-content: center;
+    /* font-family: 'Doto', sans-serif; */
+    align-items: center;
+    width: 120px;
+    cursor: pointer;
+    color: rgba(184, 186, 220, 0.5);
+    background-color: rgba(48, 48, 48, 0.5);
+    box-shadow: 0 6px 6px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.19), 2px 2px 2px rgba(0, 0, 0, 0.23);
+    /* border-radius: 10px 10px 0 0; */
+    padding: 5px;
+    position: relative;
+    transition: background-color 500ms, color 500ms;
+    user-select: none;
+}
+
+.tabActive {
+    background-color: #1a1a1a;
+    color: #646cff;
+    position: relative;
+
+}
+
+.underline {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-radius: 45px;
+    background: #8855ff;
+}

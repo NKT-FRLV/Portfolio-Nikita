@@ -1,0 +1,120 @@
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+#threejs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.background {
+  width: 150%;
+  height: 100%;
+}
+
+.portfolio {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(100% - 100px);
+
+  margin-left: 100px;
+  
+  /* user-select: none; */
+}
+
+/* .main {
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 100vh;
+  position: relative;
+} */
+
+/* .section {
+
+} */
+
+.fp-watermark {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: #00ff7f;
+  transform-origin: 0%;
+}
+
+/* Toastify styles for react-toastify on Contact Form submit */
+
+.Toastify {
+  position: absolute; 
+  bottom: 0;  
+  left: 50%;     
+  transform: translateX(-50%);
+  z-index: 10;   
+}
+
+.Toastify__toast-container {
+  position: absolute; 
+  inset: 0;
+}
+
+.Toastify__toast {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.9rem !important;
+}
+
+.Toastify__toast--error {
+  background-color: #d32f2f8a; 
+  color: #fff;             
+}
+
+.Toastify__toast--success {
+  background-color: #0e340f7a; 
+  color: #fff;
+}
+
+.Toastify__close-button:hover {
+  background-color: transparent;
+}
+
+
+/* I Use this scrollbar styles for every element, but realy we need only for text in About section */
+
+*::-webkit-scrollbar {
+  width: 12px; /* Ширина скроллбара */
+  height: 12px; /* Высота скроллбара для горизонтальной прокрутки */
+}
+
+*::-webkit-scrollbar-thumb {
+  box-sizing: border-box;
+  border: 2px solid transparent; /* Пространство между скроллбаром и треком */
+  border-radius: 10px; /* Радиус скроллера */
+  background-clip: content-box; /* Сохранение обрезки */
+  background-color: #ffffff89; /* Цвет скроллера */
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #0000009e; /* Цвет трека */
+  border-radius: 10px; /* Радиус трека */
+}

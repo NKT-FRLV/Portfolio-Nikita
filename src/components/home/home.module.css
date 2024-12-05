@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+}
+
+.heading {
+    font-family: 'Roboto', sans-serif;
+    padding: 0.6rem 1rem;
+    /* background: linear-gradient(135deg, #526fff2d, #cfcfcf11); */
+    /* backdrop-filter: blur(3px); */
+    border-radius: 12px;
+    /* box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.heading h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.heroName {
+    font-family: 'Fuzzy Bubbles', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 0.6;
+    position: relative;
+}
+
+.n {
+    color: #00ff7f;
+}
+
+.heading p {
+    margin-top: 10px;
+     /* Акцентный цвет */
+    color: #8d8d8d;
+    font-size: 12px;
+    font-weight: 300; /* Более тонкий шрифт */
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-align: left; /* Выравнивание по левому краю */
+  }
+
+.accent {
+    color: #00ff7f;
+}
