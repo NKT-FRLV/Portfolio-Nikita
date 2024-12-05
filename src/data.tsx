@@ -1,6 +1,6 @@
 import { FaUniversity, FaGraduationCap, FaSwimmer } from 'react-icons/fa';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaGit} from 'react-icons/fa';
-import { SiTypescript, SiThreedotjs, SiRedux, SiSolid, SiOpenai, SiVite, SiWebpack, SiVisualstudiocode } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaGit } from 'react-icons/fa';
+import { SiTypescript, SiThreedotjs, SiRedux, SiSolid, SiOpenai, SiVite, SiWebpack, SiWebstorm } from 'react-icons/si';
 import { IoSparkles } from 'react-icons/io5';
 import Flags from 'react-world-flags';
 
@@ -20,7 +20,7 @@ export const skills: { name: string; percent: number; icon: JSX.Element }[] = [
   { name: 'AI Integration', percent: 75, icon: <SiOpenai /> },
   { name: 'Webpack', percent: 80, icon: <SiWebpack /> },
   { name: 'Vite', percent: 90, icon: <SiVite /> },
-  { name: 'VS Code', percent: 90, icon: <SiVisualstudiocode /> },
+  { name: 'Webstorm Code redactor', percent: 90, icon: <SiWebstorm  /> },
   { name: 'SOLID Principles', percent: 85, icon: <SiSolid /> },
   { name: 'Clean Code', percent: 90, icon: <IoSparkles /> },
 ];

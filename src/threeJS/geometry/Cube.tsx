@@ -10,7 +10,11 @@ import Sphere from './Sphere';
 
 const randomPositions: [number, number, number][] = generateRandomPositions(15, 2); // 15 точек, разброс до 2 единиц от центра
 
-const Cube = ({ progress }: { progress: number }) => {
+interface Props {
+  progress: 0 | 1 | 2 | 3
+}
+
+const Cube = ({ progress }: Props) => {
   const edgesRef = useRef<LineSegments>(null);
   const cubeRef = useRef<Mesh>(null);
   const sphereRefs = useRef<Mesh[]>([]);
