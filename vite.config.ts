@@ -6,7 +6,7 @@ export default defineConfig({
   assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'],
   root: './',
   build: {
-    outDir: '../dist/client',     // Указываем, чтобы Vite создал dist/client относительно корня проекта
+    outDir: 'dist',     // Указываем, чтобы Vite создал dist/client относительно корня проекта
     emptyOutDir: true,
     rollupOptions: {
       input: 'index.html',  // Точный путь к `index.html` внутри папки client
