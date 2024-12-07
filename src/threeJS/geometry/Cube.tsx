@@ -8,7 +8,7 @@ import {
 } from './utils';
 import Sphere from './Sphere';
 
-const randomPositions: [number, number, number][] = generateRandomPositions(15, 2); // 15 точек, разброс до 2 единиц от центра
+const randomPositions: [number, number, number][] = generateRandomPositions(12, 2); // 12 точек, разброс до 2 единиц от центра
 
 interface Props {
   progress: 0 | 1 | 2 | 3
@@ -22,7 +22,7 @@ const Cube = ({ progress }: Props) => {
 
   // Спринг для вращения куба
   const { rotation } = useSpring({
-    rotation: progress === 1 ? [0, Math.PI * 1.5, 0] : [0, 0, 0], // Вращение на 360 градусов при progress === 2
+    rotation: progress === 1 ? [Math.PI * 1.5, 0, 0] : [0, 0, 0], // Вращение на 360 градусов при progress === 2
     config: { tension: 80, friction: 16 },
   });
 
@@ -41,14 +41,14 @@ const Cube = ({ progress }: Props) => {
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
     if (progress === 0) {
-      setTargetPositions(generateRandomPositions(15, 2.5));
+      setTargetPositions(generateRandomPositions(12, 2.5));
       interval = setInterval(() => {
-        setTargetPositions(generateRandomPositions(15, 2.5));
+        setTargetPositions(generateRandomPositions(12, 2.5));
       }, 3000);
     } else if (progress === 1) {
       setTargetPositions(calculateRingPositions(1.2, randomPositions.length));
     } else if (progress === 2) {
-      setTargetPositions(generateRandomPositions(15, 2.5));
+      setTargetPositions(generateRandomPositions(12, 2.5));
     }
     return () => {
       if (interval) clearInterval(interval);
@@ -85,6 +85,10 @@ const Cube = ({ progress }: Props) => {
         );
       }
 
+      // Дыхание Шаров
+      // const distanceFactor = Math.sin(time * 2) * 0.2 + 1; // От 0.8 до 1.2
+      // target.multiplyScalar(distanceFactor); // Увеличиваем/уменьшаем расстояние от центра
+
       sphere.position.lerp(target, 0.05); // Плавное движение к цели
     });
   });
@@ -93,7 +97,7 @@ const Cube = ({ progress }: Props) => {
     <>
     <a.mesh ref={cubeRef} rotation={rotation}>
       <boxGeometry args={[0.8, 0.8, 0.8]} />
-      <meshStandardMaterial color="black" transparent opacity={0.7} />
+      <meshStandardMaterial color="black" transparent opacity={0.9} />
 
       {/* Линии границ */}
       <lineSegments ref={edgesRef}>

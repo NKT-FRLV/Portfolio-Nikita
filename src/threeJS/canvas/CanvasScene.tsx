@@ -1,12 +1,12 @@
-import React, { Suspense, useMemo } from 'react';
+import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { Canvas, useLoader } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import Cube from '../geometry/Cube';
 import FlickeringStars from '../stars/FlickeringStars';
 import FlickeringPoints from '../stars/FlickeringPoints';
-import * as THREE from 'three';
+
 
 interface Props {
   progress: 0 | 1 | 2 | 3
@@ -15,24 +15,12 @@ interface Props {
 const CanvasScene = ({ progress }: Props) => {
   const threejsDiv = document.getElementById('threejs');
 
-  // Генерация точек-звезд
-  const points = useMemo(() => {
-    const positions = [];
-    for (let i = 0; i < 2000; i++) {
-      const x = (Math.random() - 0.5) * 100;
-      const y = (Math.random() - 0.5) * 100;
-      const z = (Math.random() - 0.5) * 100;
-      positions.push([x, y, z]);
-    }
-    return positions;
-  }, []);
-
   return threejsDiv ? ReactDOM.createPortal((
     <>
     <div className='background'>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={null}>
           <Canvas
-            // shadows
+            shadows
             camera={{ position: [4, 4, 4], fov: 45 }}
           >
             <color attach="background" args={['#00172b']} />
@@ -60,7 +48,7 @@ const CanvasScene = ({ progress }: Props) => {
 
             {/* Звёзды */}
             <FlickeringStars />
-            <FlickeringPoints points={points} />
+            <FlickeringPoints />
             {/* <RandomStars /> */}
             
             {/* Туман */}
@@ -68,8 +56,8 @@ const CanvasScene = ({ progress }: Props) => {
 
             {/* Управление камерой */}
             <OrbitControls
-              autoRotate
-              autoRotateSpeed={0.6}
+              // autoRotate
+              // autoRotateSpeed={0.6}
               enablePan={false}
               enableZoom={false}
               // ref={orbitRef}

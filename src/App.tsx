@@ -13,7 +13,7 @@ import './App.css'
 
 function App() {
   const [hendleFullpage, setHendleFullpage] = useState<any>(); // Сохраняем API fullpage
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // Индекс текущей секции
+  const [currentSectionIndex, setCurrentSectionIndex] = useState<0 | 1 | 2 | 3>(0); // Индекс текущей секции
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
   // Рассчитываем прогресс как процент
@@ -37,7 +37,7 @@ function App() {
           navigation={true}
           // Обновляем индекс текущей секции
           onLeave={(_, destination) => {
-            setCurrentSectionIndex(destination.index);
+            setCurrentSectionIndex(destination.index as 0 | 1 | 2 | 3);
           }}
           render={({ fullpageApi }) => {
             if (!hendleFullpage) setHendleFullpage(fullpageApi);

@@ -25,10 +25,34 @@
 
 .underline {
     position: absolute;
-    bottom: -3px;
-    left: 0;
-    right: 0;
+    bottom: -1px;
+    left: 10px;
+    right: 10px;
     height: 1px;
     border-radius: 45px;
     background: #8855ff;
+}
+
+
+@media screen and (max-width: 1050px) {
+    .tab {
+        width: 90px;
+    }
+}
+  
+  
+@media screen and (max-width: 768px) {
+
+    .tab {
+        width: 80px;
+    }
+
+}
+  
+@media screen and (max-width: 440px) {
+
+    .tab {
+        width: 60px;
+    }
+
 }

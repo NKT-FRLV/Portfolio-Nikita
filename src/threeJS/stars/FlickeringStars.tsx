@@ -12,6 +12,9 @@ const FlickeringStars: React.FC = () => {
     if (starsRef.current) {
       const time = Math.sin(clock.getElapsedTime() * 2) * 0.5 + 0.5; // Значение от 0 до 1
       (starsRef.current.material as PointsMaterial).opacity = time; // Изменение прозрачности
+
+      // Добавляем вращение вокруг оси Y
+      starsRef.current.rotation.y += 0.001; // Скорость вращения
     }
   });
 

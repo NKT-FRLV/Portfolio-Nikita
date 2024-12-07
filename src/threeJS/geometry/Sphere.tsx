@@ -10,13 +10,14 @@ interface SphereProps {
 // Используем React.forwardRef для передачи рефа
 const Sphere = forwardRef<Mesh, SphereProps>(({ position, emissiveColor }, ref) => {
   return (
-    <a.mesh ref={ref} position={position}>
+    <a.mesh ref={ref} position={position} >
       <sphereGeometry args={[0.05, 32, 32]} />
       <meshStandardMaterial
         attach="material"
         color="white"
         emissive={emissiveColor}
         emissiveIntensity={5}
+        
       />
     </a.mesh>
   );

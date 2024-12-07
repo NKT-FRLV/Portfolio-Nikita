@@ -6,6 +6,7 @@ import AnimatedLetters from '../animatedLetters/AnimatedLetters'
 import animateStyles from '../animatedLetters/animatedLetters.module.css'
 import { skills, languages, myEducation } from '../../data';
 import { IconContext } from 'react-icons';
+import { useWindowSize } from '../../hooks';
 import styles from './about.module.css';
 import { motion, AnimatePresence} from 'framer-motion'
 import Tooltip from '@mui/material/Tooltip'; // Импорт тултипа
@@ -24,6 +25,12 @@ const About = () => {
         // triggerOnce: true,
         threshold: 0.6, // 100% элемента должны быть видимы
       });
+    
+    const { width } = useWindowSize(); // Используем ширину экрана из хука
+
+    // Определяем размер иконок в зависимости от ширины экрана
+    const iconSizeSkills = width > 768 ? 45 : width > 470 ? 30 : 20;
+    const iconSizeEducation = width > 768 ? 25 : width > 470 ? 15 : 10;
 
     useEffect(() => {
         let timer: ReturnType<typeof setTimeout>;
@@ -47,9 +54,9 @@ const About = () => {
               <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
           </h2>
           <div className={styles.tabsWrapper}>
-            <Tab title="Skills" isActive={activeTab === 'Skills'} handleTabClick={() => setActiveTab('Skills')} borderRadius="10px 0 0 0" />
+            <Tab title="Skills" isActive={activeTab === 'Skills'} handleTabClick={() => setActiveTab('Skills')} borderRadius="10px 0 0 10px" />
             <Tab title="Education" isActive={activeTab === 'Education'} handleTabClick={() => setActiveTab('Education')} borderRadius="0 0 0 0" />
-            <Tab title="About Me" isActive={activeTab === 'About'} handleTabClick={() => setActiveTab('About')} borderRadius="0 10px 0 0" />
+            <Tab title="About Me" isActive={activeTab === 'About'} handleTabClick={() => setActiveTab('About')} borderRadius="0 10px 10px 0" />
           </div>
           
           <AnimatePresence mode="wait">
@@ -75,7 +82,7 @@ const About = () => {
                             {skills.map((skill, index) => (
                                 <Tooltip key={index} title={skill.name} arrow>
                                 <motion.li className={styles.scillCard} whileHover={{ scale: 1.1 }}>
-                                  {skill.icon}
+                                  <skill.icon size={iconSizeSkills} />
                                 </motion.li>
                               </Tooltip>
                             ))}
@@ -125,11 +132,14 @@ const About = () => {
                         <Tooltip title={item.info} key={index} placement="right" arrow >
                           <li key={index} className={styles.educetionCard}>
                             <div className={styles.educetionHeading}>
-
-                              <h3 className={styles.educetionTitle}>
-                                { item.logo && <div className={styles.educationLogo}>{item.logo}</div>}
-                                {item.title}
-                              </h3>
+                              <div className={styles.educetionTitleWrapper}>
+                                { item.logo && <div className={styles.educationLogo}>
+                                      <item.logo size={iconSizeEducation} />
+                                </div>}
+                                <h3 className={styles.educetionTitle}>
+                                  {item.title}
+                                </h3>
+                              </div>
                               <p className={styles.educetionDate}>{item.date}</p>
                             </div>
                             <p className={styles.educetionProfesion}>{item.profesion}</p>
