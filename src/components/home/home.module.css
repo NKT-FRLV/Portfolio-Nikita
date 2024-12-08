@@ -72,6 +72,10 @@
     transform: scale(1.05) translateY(-5px);
 }
 
+.hereIAm:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
 .modalImage {
     max-width: 100%;
     background-position: center;

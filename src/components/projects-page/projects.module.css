@@ -1,0 +1,166 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    padding: 2rem 1rem;
+    position: relative;
+    /* border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
+  }
+
+  .heading {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #00ff7f;
+    margin-bottom: 2rem;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+  }
+  
+  .list {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Колонка вместо сетки */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Расстояние между карточками */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 1.5rem; /* Пространство внутри карточки */
+    border-radius: 10px; /* Скругленные углы */
+    background-color: rgba(200, 137, 230, 0.1); /* Лёгкий фон с акцентным цветом */
+    border: 1.5px solid rgba(200, 137, 230, 0.637); /* Градиентная рамка */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Мягкая тень */
+    backdrop-filter: blur(4px); /* Эффект размытия */
+    color: #fff;
+  }
+  
+  .projectImageContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden; /* Обрезка изображения */
+    border-radius: 8px; /* Скругление углов у изображения */
+  }
+  
+  .projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обеспечивает покрытие без искажений */
+    object-position: center; /* Позиция изображения */
+  }
+  
+  .projectInfo {
+    margin-top: 1rem; /* Отступ от изображения */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Расстояние между текстовыми элементами */
+  }
+  
+  .projectTitle {
+    font-family: 'Press Start 2P', monospace; /* Используем тот же шрифт */
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00ff7f; /* Яркий акцентный цвет */
+    margin: 0;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+  }
+  
+  .projectDescription {
+    font-family: 'Roboto', 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ffffffb6; /* Лёгкий серый цвет */
+  }
+
+  .tecnologies {
+    display: flex;
+    flex-wrap: wrap; /* Перенос тегов на новую строку, если не хватает места */
+    gap: 0.5rem; /* Расстояние между тегами */
+    margin-top: 1rem; /* Отступ от описания */
+    padding: 0;
+    list-style: none; /* Убираем маркеры списка */
+  }
+  
+  .projectTag {
+    flex:1;
+    text-align: center;
+    padding: 0.4rem 0.8rem; /* Внутренний отступ для размера тегов */
+    border-radius: 8px; /* Скругленные углы */
+    background-color: rgba(0, 255, 127, 0.1); /* Полупрозрачный фон с акцентным цветом */
+    color: #00ff7f; /* Цвет текста тега */
+    font-family: 'Roboto', 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.7); /* Тень текста */
+    white-space: nowrap; /* Отключаем перенос текста внутри тега */
+  }
+  
+  .projectLinks {
+    margin-top: 1rem; /* Отступ от текста */
+    display: flex;
+    justify-content: space-between; /* Разделение ссылок */
+    gap: 1rem; /* Расстояние между ссылками */
+  }
+  
+  .projectLinks a {
+    display: block;
+    border: 1.5px solid rgba(200, 137, 230, 0.637);
+    background-color: rgba(200, 137, 230, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    font-family: 'Roboto', 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #00ff7f; /* Цвет ссылок */
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .projectLinks a:hover {
+    background-color: rgba(200, 137, 230, 0.637);
+    color: #ffffff; /* Белый цвет при наведении */
+  }
+  
+  .arrowButtonStart {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 100px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(0, 95, 47, 0.05);
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .arrowButtonEnd {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 100px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(0, 95, 47, 0.05);
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }

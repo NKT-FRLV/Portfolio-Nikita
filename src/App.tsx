@@ -1,12 +1,12 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import CanvasScene from './threeJS/canvas/CanvasScene'
 import Nav from './components/navBar/Nav';
-import Section from './components/section/Section';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import ContactSection from './components/contactSection/ContactSection';
+import ProjectsPage from './components/projects-page/ProjectsPage';
 // const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'))
 import './App.css'
 
@@ -50,7 +50,7 @@ function App() {
                   <About />
                 </div>
                 <div className="section">
-                  <Section>Projects</Section>
+                  <ProjectsPage />
                 </div>
                 <div className="section">
                   <ContactSection />

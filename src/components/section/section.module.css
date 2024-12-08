@@ -9,20 +9,7 @@
 
     scroll-snap-align: start;
     flex-shrink: 0;
-    
-
     scroll-snap-align: center; 
-}
-
-.section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #00ff804a;
 }
 
 @media screen and (max-width: 915px) {

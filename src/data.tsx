@@ -63,3 +63,30 @@ export const myEducation: {
     logo: FaSwimmer
   }
 ];
+
+export const projects: {
+  title: string;
+  image: string; // Указываем, что image — React-компонент
+  description: string;
+  tecnologies: string[];
+  urlGitHub: string;
+  urlDemo: string;
+
+}[] = [
+  {
+    title: 'Mesto',
+    image: '/src/assets/mesto.png',
+    description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
+    tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/mesto.git',
+    urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
+  },
+  {
+    title: 'HFxkfnsdfjls',
+    image: '/src/assets/mesto.png',
+    description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
+    tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/mesto.git',
+    urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
+  },
+];
