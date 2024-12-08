@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IoHome, IoMail, IoPerson, IoGitBranch } from 'react-icons/io5';
+import { IoHome, IoMail, IoPerson, IoBriefcase   } from 'react-icons/io5';
 import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';
 
@@ -41,7 +41,7 @@ const Nav = ({activeSection, moveToSection}: Props) => {
         </a>
         <a className={styles.link} href="#" onClick={() => moveToSection('projects')}>
           <span className={styles.linkIcon}>
-            <IoGitBranch size={iconSize} color={activeSection === 2 ? '#00ff7f' : 'inherit'}/>
+            <IoBriefcase      size={iconSize} color={activeSection === 2 ? '#00ff7f' : 'inherit'}/>
           </span>
           <span className={styles.linkText}>
             Projects

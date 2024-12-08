@@ -4,6 +4,7 @@ import Section from '../section/Section'
 import styles from './home.module.css'
 import animeteStyles from '../animatedLetters/animatedLetters.module.css'
 import Modal from '../modal/Modal';
+import image from '../../assets/nikita_color.jpg';
 
 interface HomeProps {
   moveToSection: (section: string) => void
@@ -55,7 +56,7 @@ const Home = ({ moveToSection }: HomeProps) => {
               here I'am
             </div>
             <Modal isOpen={open} closeModal={openModal}> 
-                <img src="./public/images/nikita_color.jpg" alt="autor foto" className={styles.modalImage} />
+                <img src={image} alt="autor foto" className={styles.modalImage} />
             </Modal>
         </div>
         <button onClick={() => moveToSection('contact')}>CONTACT ME</button>

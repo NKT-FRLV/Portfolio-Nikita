@@ -27,7 +27,7 @@
     width: 140px;
     height: 50px;
     overflow: hidden;
-    background-image: url('./public/images/nkt-logo.png');
+    background-image: url('/src/assets/nkt-logo.png');
     background-size: cover;
     background-position: center;
 }

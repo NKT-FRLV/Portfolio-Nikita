@@ -47,7 +47,8 @@
   }
 
   .button:hover {
-    color: #646cff;
+    color: #00ff7f;
+    transform: scale(1.2);
     background-color: transparent;
   }
   
