@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { IoHome, IoMail, IoPerson, IoGitBranch } from 'react-icons/io5';
 import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';

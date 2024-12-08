@@ -1,0 +1,53 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay {
+    position: fixed;
+    inset: 0;
+    /* z-index: 10; */
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    max-height: fit-content;
+    color: rgb(0, 0, 0);
+    padding: 0.6em 1.2em;
+    font-weight: 500;
+    font-family: inherit;
+    /* gap: 10px; */
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .button {
+    position: absolute;
+    padding: 0;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    color: #000000;
+    font-size: x-large;
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+  }
+
+  .button:hover {
+    color: #646cff;
+    background-color: transparent;
+  }
+  

@@ -3,6 +3,7 @@ import AnimatedLetters from '../animatedLetters/AnimatedLetters'
 import Section from '../section/Section'
 import styles from './home.module.css'
 import animeteStyles from '../animatedLetters/animatedLetters.module.css'
+import Modal from '../modal/Modal';
 
 interface HomeProps {
   moveToSection: (section: string) => void
@@ -10,7 +11,12 @@ interface HomeProps {
 
 const Home = ({ moveToSection }: HomeProps) => {
 
-const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
+  const [open, setOpen] = useState<boolean>(false)
+  const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
+
+  const openModal = () => {
+    setOpen(!open);
+};
 
 
   useEffect(() => {
@@ -30,7 +36,6 @@ const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
     <div className={styles.container}>
         <div className={styles.heading}>
             <h1>
-                
                 <AnimatedLetters letterClass={letterClass} strArray={hi} idx={1} />
                 <br/>
                 <span className={styles.heroName}>
@@ -46,6 +51,12 @@ const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
                 <br/>
                 Exploring the frontiers of <strong className={styles.accent}>Web</strong> and <strong className={styles.accent}>AI</strong> to create a smarter, better web.
             </p>
+            <div className={styles.hereIAm} onClick={openModal}>
+              here I'am
+            </div>
+            <Modal isOpen={open} closeModal={openModal}> 
+                <img src="./public/images/nikita_color.jpg" alt="autor foto" className={styles.modalImage} />
+            </Modal>
         </div>
         <button onClick={() => moveToSection('contact')}>CONTACT ME</button>
     </div>

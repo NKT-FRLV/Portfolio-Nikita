@@ -27,7 +27,7 @@
     width: 140px;
     height: 50px;
     overflow: hidden;
-    background-image: url('./src/assets/nkt-logo.png');
+    background-image: url('./public/images/nkt-logo.png');
     background-size: cover;
     background-position: center;
 }
@@ -94,13 +94,16 @@
     .sidebar {
         width: 70px;
     }
+
+    .logoLink {
+        width: 100px;
+        height: 50px;
+    }
   }
   
 
 @media screen and (max-width: 768px) {
-    /* .sidebar {
-        width: 70px;
-    } */
+    
 
     .menu {
         gap: 0;
@@ -123,6 +126,11 @@
 
     .sidebar {
         width: 50px;
+    }
+
+    .logoLink {
+        width: 70px;
+        height: 50px;
     }
 
     .link {

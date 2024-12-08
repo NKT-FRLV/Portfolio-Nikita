@@ -47,3 +47,44 @@
 .accent {
     color: #00ff7f;
 }
+
+.hereIAm {
+    max-width: 50%;
+    font-family: 'Fuzzy Bubbles', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    color: #00ff7f;
+    text-shadow: 2px 4px 10px rgba(0, 255, 127, 0.6);
+    background-color:rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1.3px solid rgba(0, 0, 0, 0.9);
+    box-shadow: -14px 8px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.hereIAm:hover {
+    background-color:rgba(0, 0, 0, 0.5);
+    box-shadow: -14px 8px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05) translateY(-5px);
+}
+
+.modalImage {
+    max-width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4%;
+    border: 1px solid #646cffaa;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .hereIAm {
+
+        margin: 1rem auto 0 0;
+
+    }
+}
