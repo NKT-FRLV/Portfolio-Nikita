@@ -20,16 +20,10 @@ const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
     return () => clearTimeout(timer)
   }, [])
 
-    const hi = ["H", "i", ","];
-    const nameArray = ["I", "'", "m", " ", "<", "N", "i", "k", "i", "t", "a", ">"];
-    const frontend = ["F", "r", "o", "n", "t", "e", "n", "d", " ", "D", "e", "v", "e", "l", "o", "p", "e", "r"];
-    const fullText = [
-        'R', 'e', 'a', 'c', 't', ' ',
-        '|', ' ',
-        'W', 'e', 'b', ' ',
-        '|', ' ',
-        'A', 'I', ' ', 'e', 'x', 'p', 'e', 'r', 't'
-      ];
+  const hi = "Hi,".split('');
+  const nameArray = "I'm <Nikita>".split('');
+  const frontend = "Frontend Developer".split('');
+  const fullText = "React | Web | AI expert".split('');
 
   return (
     <Section>

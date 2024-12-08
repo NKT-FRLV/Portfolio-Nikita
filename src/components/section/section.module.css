@@ -24,3 +24,17 @@
     height: 1px;
     background-color: #00ff804a;
 }
+
+@media screen and (max-width: 915px) {
+    .section {
+        width: 70vw;
+        padding: 3rem 2rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .section {
+        width: 80vw;
+        padding: 6rem 2rem;
+    }
+}

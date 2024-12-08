@@ -225,15 +225,16 @@
 
 
 @media screen and (max-width: 768px) {
-  /* .tabsWrapper {
-    top: 65px;
-    left: 200px;
-    padding: 3px;
-  } */
+  .scillCard {
+    width: 70px;
+    height: 40px;
+    border: 1.2px solid rgba(200, 137, 230, 0.637);
+
+  }
   
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 510px) {
 
   .container {
     padding-left: 0;
@@ -250,13 +251,5 @@
   .textWrapper {
     padding-left: 0;
   }
-
-  .scillCard {
-    width: 70px;
-    height: 40px;
-    border: 1.2px solid rgba(200, 137, 230, 0.637);
-
-  }
-
 
 }

@@ -26,7 +26,7 @@ function App() {
         progress={currentSectionIndex}
       />
 
-      <Nav moveToSection={(section) => hendleFullpage?.moveTo(section)} />
+      <Nav activeSection={currentSectionIndex} moveToSection={(section) => hendleFullpage?.moveTo(section)} />
 
       <div className="portfolio">
         <ReactFullpage

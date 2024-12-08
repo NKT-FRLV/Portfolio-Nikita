@@ -8,7 +8,7 @@
     flex-direction: column;
     width: 100px;
     height: 100vh;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     background-color: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(2px);
     box-shadow: 0 0.5rem 0.8rem rgba(0,0,0,0.5);
@@ -34,10 +34,11 @@
 
 .menu {
     display: flex;
-    flex: 4;
+    flex: 6;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    align-items: center;
+    gap: 3rem;
 }
 
 .links {
@@ -45,7 +46,48 @@
     flex: 1;
     flex-direction: column;
     justify-content: end;
+    align-items: center;
     gap: 1rem;
+}
+
+.link {
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.362);
+    padding: 2.5rem 0; */
+}
+
+
+
+.linkIcon {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.linkIcon svg {
+    transition: color 0.3s ease-in-out;
+}
+
+.linkText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+    color: #00ff7f;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.link:hover .linkIcon {
+    opacity: 0;
+}
+
+.link:hover .linkText {
+    opacity: 1;
 }
 
 @media screen and (max-width: 1050px) {
@@ -59,6 +101,21 @@
     /* .sidebar {
         width: 70px;
     } */
+
+    .menu {
+        gap: 0;
+    }
+
+    .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        background-color: rgba(0, 0, 0, 0.362);
+        padding: 4rem 0;
+        border:rgba(0, 0, 0, 0.362) 1px solid;
+
+    }
     
 }
 
@@ -66,6 +123,12 @@
 
     .sidebar {
         width: 50px;
+    }
+
+    .link {
+        font-size: 1.8rem;
+        padding: 10rem 0;
+
     }
     
 }

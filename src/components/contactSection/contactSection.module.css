@@ -102,3 +102,16 @@
   background-color: #ff4500;
   color: #000;
 }
+
+@media screen and (max-width: 915px) {
+  .description {
+    font-size: 1.4rem;
+  }
+}
+
+@media  screen and (max-width: 768px) {
+  .description {
+    font-size: 1.8rem;
+  }
+  
+}
