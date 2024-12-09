@@ -1,10 +1,11 @@
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 100%;
+    height: 100%;
     padding: 2rem 1rem;
-    position: relative;
     /* border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
   }
@@ -20,57 +21,55 @@
   
   .list {
     position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row; /* Колонка вместо сетки */
     justify-content: center;
     align-items: center;
-    gap: 2rem; /* Расстояние между карточками */
-    margin: 0;
-    padding: 0;
-    list-style: none;
   }
   
   .project {
-    position: relative;
+    position: absolute;
+    
     display: flex;
     flex-direction: column;
-    width: 70%;
-    padding: 1.5rem; /* Пространство внутри карточки */
-    border-radius: 10px; /* Скругленные углы */
-    background-color: rgba(200, 137, 230, 0.1); /* Лёгкий фон с акцентным цветом */
-    border: 1.5px solid rgba(200, 137, 230, 0.637); /* Градиентная рамка */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Мягкая тень */
-    backdrop-filter: blur(4px); /* Эффект размытия */
+    width: 400px;
+    height: fit-content;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: rgba(200, 137, 230, 0.1);
+    border: 1.5px solid rgba(200, 137, 230, 0.637);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
     color: #fff;
   }
   
   .projectImageContainer {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden; /* Обрезка изображения */
-    border-radius: 8px; /* Скругление углов у изображения */
+    width: 350px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px; 
   }
   
   .projectImage {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Обеспечивает покрытие без искажений */
-    object-position: center; /* Позиция изображения */
+    object-fit: cover;
+    object-position: center;
   }
   
   .projectInfo {
-    margin-top: 1rem; /* Отступ от изображения */
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Расстояние между текстовыми элементами */
+    gap: 0.5rem;
   }
   
   .projectTitle {
-    font-family: 'Press Start 2P', monospace; /* Используем тот же шрифт */
+    font-family: 'Press Start 2P', monospace;
     font-size: 1.3rem;
     font-weight: bold;
-    color: #00ff7f; /* Яркий акцентный цвет */
+    color: #00ff7f;
     margin: 0;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
   }
@@ -131,10 +130,10 @@
     color: #ffffff; /* Белый цвет при наведении */
   }
   
-  .arrowButtonStart {
+  .arrow {
     position: absolute;
     top: 50%;
-    left: 0;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,22 +144,21 @@
     background-color: rgba(0, 95, 47, 0.05);
     border: none;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
-  .arrowButtonEnd {
-    position: absolute;
-    top: 50%;
+  .arrow:hover {
+    transform: scale(1.05) translateY(-50%);
+  }
+
+  .arrow:active {
+    transform: scale(0.95) translateY(-50%);
+  }
+
+  .arrowStart {
+    left: 0;
+  }
+
+  .arrowEnd {
     right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 100px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    background-color: rgba(0, 95, 47, 0.05);
-    border: none;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
   }
