@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import AnimatedLetters from '../animatedLetters/AnimatedLetters'
-import animateStyles from '../animatedLetters/animatedLetters.module.css'
-import { useInView } from 'react-intersection-observer';
+import { useAnimatedLetters } from '../animatedLetters/hook'
 import Section from '../section/Section'
 import styles from './contactSection.module.css'
 
@@ -16,25 +15,11 @@ const ContactSection = () => {
     const form = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
 
-    const [letterClass, setLetterClass] = useState('');
+    const { letterClass, animationContainerRef } = useAnimatedLetters({
+      threshold: 0.6,
+      animationDuration: 1700,
+    });
     const titleLetters = '<Contact Me />'.split('');
-    const { ref: sectionRef, inView: isInView } = useInView({
-        // triggerOnce: true,
-        threshold: 1, // 100% элемента должны быть видимы
-      });
-
-    useEffect(() => {
-        let timer: ReturnType<typeof setTimeout>;
-
-        if (isInView) {
-            setLetterClass(animateStyles.textAnimate)
-            timer = setTimeout(() => {
-                setLetterClass(animateStyles.textAnimateHover)
-            }, 2500)
-        }
-
-        return () => clearTimeout(timer)
-    }, [isInView])
 
   const sendEmail = async (e: React.FormEvent) => {
 
@@ -123,12 +108,12 @@ const ContactSection = () => {
 
   return (
     <Section>
-        <div className={styles.container} ref={sectionRef}>
+        <div className={styles.container} ref={animationContainerRef}>
             <h1 className={styles.heading}>
                 <AnimatedLetters
-                letterClass={letterClass}
-                strArray={titleLetters}
-                idx={15}
+                  letterClass={letterClass}
+                  strArray={titleLetters}
+                  idx={1}
                 />
             </h1>
             <div className={styles.contentContainer}>

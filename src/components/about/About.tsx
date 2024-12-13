@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer';
+import { useState } from 'react'
+import { useAnimatedLetters } from '../animatedLetters/hook'
 import Section from '../section/Section'
 import Tab from '../tab/Tab'
 import AnimatedLetters from '../animatedLetters/AnimatedLetters'
-import animateStyles from '../animatedLetters/animatedLetters.module.css'
 import { skills, languages, myEducation } from '../../data';
 import { IconContext } from 'react-icons';
 import { useWindowSize } from '../../hooks';
 import styles from './about.module.css';
 import { motion, AnimatePresence} from 'framer-motion'
+import { FaFileDownload } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip'; // Импорт тултипа
 import clsx from 'clsx';
 
@@ -19,37 +19,24 @@ import clsx from 'clsx';
 
 const About = () => {
 
-    const [letterClass, setLetterClass] = useState('');
+    const { letterClass, animationContainerRef, isInView } = useAnimatedLetters({
+      threshold: 0.6,
+      animationDuration: 1700,
+    })
     const [activeTab, setActiveTab] = useState<'About' | 'Skills' | 'Education'>('Skills');
-    const { ref: aboutRef, inView: isInView } = useInView({
-        // triggerOnce: true,
-        threshold: 0.6, // 100% элемента должны быть видимы
-      });
-    
+
     const { width } = useWindowSize(); // Используем ширину экрана из хука
 
     // Определяем размер иконок в зависимости от ширины экрана
     const iconSizeSkills = width > 768 ? 45 : width > 470 ? 30 : 20;
     const iconSizeEducation = width > 768 ? 25 : width > 470 ? 15 : 10;
-
-    useEffect(() => {
-        let timer: ReturnType<typeof setTimeout>;
-
-        if (isInView) {
-            setLetterClass(animateStyles.textAnimate)
-            timer = setTimeout(() => {
-                setLetterClass(animateStyles.textAnimateHover)
-            }, 1700)
-        }
-
-        return () => clearTimeout(timer)
-    }, [isInView])
+    const iconDownloadSize = width > 768 ? 25 : width > 470 ? 15 : 10;
 
     const titleLetters = '<About My Skills />'.split('');
 
   return (
     <Section style={{justifyContent: 'start', alignItems: 'start'}}>
-        <div className={styles.container} ref={aboutRef}>
+        <div className={styles.container} ref={animationContainerRef}>
           <h2 className={styles.heading}>
               <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
           </h2>
@@ -143,8 +130,16 @@ const About = () => {
                               <p className={styles.educetionDate}>{item.date}</p>
                             </div>
                             <p className={styles.educetionProfesion}>{item.profesion}</p>
-                            <p className={styles.educetionContent}>{item.content}</p>
-
+                            <div className={styles.educetionBottomContent}>
+                              <p className={styles.educetionContent}>{item.content}</p>
+                              <a
+                                className={styles.educationDownload}
+                                href={item.documentationPath}
+                                download={item.documentName}
+                              >
+                                <FaFileDownload size={iconDownloadSize} />
+                              </a>
+                            </div>
                           </li>
                         </Tooltip>
                       ))}

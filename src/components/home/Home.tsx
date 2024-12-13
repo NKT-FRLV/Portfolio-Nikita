@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import AnimatedLetters from '../animatedLetters/AnimatedLetters'
 import Section from '../section/Section'
 import styles from './home.module.css'
-import animeteStyles from '../animatedLetters/animatedLetters.module.css'
 import Modal from '../modal/Modal';
 import image from '../../assets/nikita_color.jpg';
+import { useAnimatedLetters } from '../animatedLetters/hook'
 
 interface HomeProps {
   moveToSection: (section: string) => void
@@ -13,19 +13,16 @@ interface HomeProps {
 const Home = ({ moveToSection }: HomeProps) => {
 
   const [open, setOpen] = useState<boolean>(false)
-  const [letterClass, setLetterClass] = useState(animeteStyles.textAnimate)
+  // Custom hook
+  const { letterClass } = useAnimatedLetters({
+    triggerOnLoad: true,
+    animationDuration: 2500,
+  });
 
   const openModal = () => {
     setOpen(!open);
-};
+  };
 
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLetterClass(animeteStyles.textAnimateHover)
-    }, 2500)
-    return () => clearTimeout(timer)
-  }, [])
 
   const hi = "Hi,".split('');
   const nameArray = "I'm <Nikita>".split('');

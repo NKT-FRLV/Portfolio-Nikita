@@ -10,6 +10,8 @@
     scroll-snap-align: start;
     flex-shrink: 0;
     scroll-snap-align: center; 
+
+    overflow: hidden;
 }
 
 @media screen and (max-width: 915px) {

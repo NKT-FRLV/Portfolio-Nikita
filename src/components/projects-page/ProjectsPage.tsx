@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useAnimatedLetters } from '../animatedLetters/hook'
 import { IoChevronForward , IoChevronBack } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from "popmotion";
-import { useInView } from 'react-intersection-observer';
 import AnimatedLetters from '../animatedLetters/AnimatedLetters'
-import animateStyles from '../animatedLetters/animatedLetters.module.css'
 import Section from '../section/Section'
 import styles from './projects.module.css'
 import { projects } from '../../data'
@@ -30,8 +29,11 @@ const variants = {
 
 
 const ProjectsPage = () => {
-    
-    const [letterClass, setLetterClass] = useState('');
+
+    const { letterClass, animationContainerRef } = useAnimatedLetters({
+        threshold: 0.6,
+        animationDuration: 1700,
+      });
 
     // Определяем размер иконок в зависимости от ширины экрана.
     const { width } = useWindowSize();
@@ -45,29 +47,12 @@ const ProjectsPage = () => {
         setPage([page + newDirection, newDirection]);
     };
 
-    const { ref: sectionRef, inView: isInView } = useInView({
-        // triggerOnce: true,
-        threshold: 0.6, // % элемента должны быть видимы
-      });
-
-    useEffect(() => {
-        let timer: ReturnType<typeof setTimeout>;
-
-        if (isInView) {
-            setLetterClass(animateStyles.textAnimate)
-            timer = setTimeout(() => {
-                setLetterClass(animateStyles.textAnimateHover)
-            }, 1700)
-        }
-
-        return () => clearTimeout(timer)
-    }, [isInView])
 
     const titleLetters = '<My Projects />'.split('');
 
     return (
         <Section style={{justifyContent: 'start', alignItems: 'start'}}>
-            <div className={styles.container} ref={sectionRef}>
+            <div className={styles.container} ref={animationContainerRef}>
                 <h2 className={styles.heading}>
                     <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
                 </h2>

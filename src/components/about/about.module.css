@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: start;
   width: 100%;
+  height: 100%;
   padding: 2rem 1rem;
   position: relative;
   /* border-radius: 12px;
@@ -33,10 +34,12 @@
   gap: 2rem;
   flex-direction: column;
   align-items: start;
+  /* justify-content: center; */
   font-family: 'Roboto', 'Inter' sans-serif;
   text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
   color: #fff;
   padding-left: 2rem;
+  height: 70%;
 }
 
 .textTitle {
@@ -177,6 +180,7 @@
   font-size: 1rem;
   font-weight: 400;
   color: #ffffffb6;
+  text-align: end;
 }
 
 .educetionProfesion {
@@ -193,6 +197,13 @@
   line-height: 1.5;
   color: #ffffffb6;
   text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.educetionBottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
 }
 
 @media screen and (max-width: 1050px) {

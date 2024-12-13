@@ -42,6 +42,8 @@ export const myEducation: {
   content: string;
   info: string;
   logo: React.ElementType; // Указываем, что logo — React-компонент
+  documentationPath: string;
+  documentName: string
 }[] = [
   { 
     title: 'Yandex.Praktikum', 
@@ -49,7 +51,9 @@ export const myEducation: {
     date: '1.10.2023 - 24.11.2024',
     content: 'A comprehensive professional retraining program focused on mastering modern front-end technologies, including React, JavaScript, and web development best practices.',
     info: 'Yandex.Praktikum is an educational platform created by Yandex, one of the leading tech companies in Europe and Russia. The platform offers deep, practical training programs in software development, data analysis, and design. The Frontend Developer program provides intensive hands-on experience in JavaScript, React, and web development, preparing students for real-world projects and careers in IT.',
-    logo: FaUniversity
+    logo: FaUniversity,
+    documentationPath: 'documents/Practikum-certificate.pdf',
+    documentName: 'Nikita_Yandex-Praktikum_Education'
   },
   { 
     title: 'RSUTS-University', 
@@ -57,7 +61,9 @@ export const myEducation: {
     date: '2018 - 2022', 
     content: 'Studied hospitality management and specialized in the hotel industry.',
     info: 'The Russian State University of Tourism and Service (RSUTS) is a leading institution in Russia focused on training professionals in the tourism and hospitality industries. Founded in 1952, the university offers programs in hospitality management, service design, and business administration. RSUTS is renowned for its strong partnerships with global hotel chains and travel agencies, providing students with excellent opportunities for internships and career development.',
-    logo: FaGraduationCap
+    logo: FaGraduationCap,
+    documentationPath: 'documents/Education-University.pdf',
+    documentName: 'Nikita_University_Education'
   },
   { 
     title: 'PADI Diving School', 
@@ -65,7 +71,9 @@ export const myEducation: {
     date: '2007', 
     content: 'Diving school in Sharm El-Sheikh. Earned the PADI Pro certification and gained the ability to dive up to 40 meters deep.',
     info: 'The PADI Diving School in Sharm El-Sheikh is a globally recognized training center',
-    logo: FaSwimmer
+    logo: FaSwimmer,
+    documentationPath: 'documents/OPEN-WATER-DIVER.pdf',
+    documentName: 'Nikita_Diving_Education'
   }
 ];
 
