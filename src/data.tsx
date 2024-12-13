@@ -1,8 +1,13 @@
 import { FaUniversity, FaGraduationCap, FaSwimmer } from 'react-icons/fa';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaGit } from 'react-icons/fa';
-import { SiTypescript, SiThreedotjs, SiRedux, SiSolid, SiOpenai, SiVite, SiWebpack, SiWebstorm } from 'react-icons/si';
+import { SiTypescript, SiThreedotjs, SiRedux, SiOpenai, SiVite, SiWebpack, SiJest, SiCypress } from 'react-icons/si';
 import { IoSparkles } from 'react-icons/io5';
 import Flags from 'react-world-flags';
+import mestoImage from './assets/mesto.png'
+import stellarBurgersImage from './assets/stellar-burgers.png'
+import closingTagImage from './assets/closing-tag-screen.png'
+import blogCustomizerImage from './assets/blog-customizer.png'
+
 
 
 export const skills: { name: string; percent: number; icon: React.ElementType }[] = [
@@ -19,8 +24,8 @@ export const skills: { name: string; percent: number; icon: React.ElementType }[
   { name: 'AI Integration', percent: 75, icon: SiOpenai },
   { name: 'Webpack', percent: 80, icon: SiWebpack },
   { name: 'Vite', percent: 90, icon: SiVite },
-  { name: 'Webstorm Code redactor', percent: 90, icon: SiWebstorm },
-  { name: 'SOLID Principles', percent: 85, icon: SiSolid },
+  { name: 'Unit & integration testing framework', percent: 85, icon: SiJest },
+  { name: 'E2E testing framework', percent: 90, icon: SiCypress },
   { name: 'Clean Code', percent: 90, icon: IoSparkles },
 ];
 
@@ -75,18 +80,34 @@ export const projects: {
 }[] = [
   {
     title: 'Mesto',
-    image: '/src/assets/mesto.png',
+    image: mestoImage,
     description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
     tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
     urlGitHub: 'https://github.com/mi-viejo-amigo/mesto.git',
     urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
   },
   {
-    title: 'HFxkfnsdfjls',
-    image: '/src/assets/mesto.png',
-    description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
-    tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/mesto.git',
-    urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
+    title: '<Closing tag />',
+    image: closingTagImage,
+    description: 'Simple Educational project maden almost by CSS, using diferent types of fonts and animations.',
+    tecnologies: ['HTML', 'CSS','JavaScript', 'Variable-Fonts', 'SVG-Animations'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/zakrivayuschiy-teg-f',
+    urlDemo: 'https://mi-viejo-amigo.github.io/zakrivayuschiy-teg-f/',
+  },
+  {
+    title: 'Stellar Burgers',
+    image: stellarBurgersImage,
+    description: 'A web application that allows users to log in, build custom burgers, place orders, and track order history in real time. The app uses cookies to store user tokens for seamless authentication.',
+    tecnologies: ['REACT', 'REDUX-TOOLKIT', 'REACT-ROUTER-DOM', 'TYPESCRIPT', 'COOKIE', 'API', 'SASS'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/stellar-burgers',
+    urlDemo: 'https://stellar-burgers-git-main-mi-viejo-amigos-projects.vercel.app/',
+  },
+  {
+    title: 'blog-customizer',
+    image: blogCustomizerImage,
+    description: 'An interactive blog page with a unique customization feature. Users can adjust the pages appearance through a convenient sidebar, allowing them to change the font, text and background colors, and control the width of the content section.',
+    tecnologies: ['REACT', 'TYPESCRIPT', 'WEBPACK'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/blog-customizer',
+    urlDemo: 'https://blog-customizer-puce.vercel.app/',
   },
 ];

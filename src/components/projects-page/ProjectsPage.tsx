@@ -8,6 +8,7 @@ import animateStyles from '../animatedLetters/animatedLetters.module.css'
 import Section from '../section/Section'
 import styles from './projects.module.css'
 import { projects } from '../../data'
+import { useWindowSize } from '../../hooks';
 import clsx from 'clsx';
 
 const variants = {
@@ -29,23 +30,24 @@ const variants = {
 
 
 const ProjectsPage = () => {
-
+    
     const [letterClass, setLetterClass] = useState('');
-    // const [activeProject, setActiveProject] = useState(0);
 
-    // ВОЗМОЖНО ОШИБКА В ТОМ КАК МЫ ПОЛУЧАЕМ PAGE , МЫ ИСПОЛЬЗУЕМ PAGE КАК KEY И АНИМАЦИЯ ПУТАЕТСЯ
+    // Определяем размер иконок в зависимости от ширины экрана.
+    const { width } = useWindowSize();
+    const arrowWidth = width > 768 ? 60 : 35;
+    const arrowHeight = width > 768 ? 100 : 55;
+
+    // Управление пагинацией карточек.
     const [[page, direction], setPage] = useState([0, 0]);
-
-
     const projectIndex = wrap(0, projects.length, page);
-
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
     };
 
     const { ref: sectionRef, inView: isInView } = useInView({
         // triggerOnce: true,
-        threshold: 0.6, // 100% элемента должны быть видимы
+        threshold: 0.6, // % элемента должны быть видимы
       });
 
     useEffect(() => {
@@ -70,10 +72,10 @@ const ProjectsPage = () => {
                     <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
                 </h2>
                 <div className={clsx(styles.arrow, styles.arrowStart)}>
-                    <IoChevronBack style={{ width: '60px', height: '100px' }} onClick={() => paginate(-1)} />
+                    <IoChevronBack style={{ width: arrowWidth, height: arrowHeight }} onClick={() => paginate(-1)} />
                 </div>
                 <div className={clsx(styles.arrow, styles.arrowEnd)}>
-                    <IoChevronForward style={{ width: '60px', height: '100px' }} onClick={() => paginate(1)} />
+                    <IoChevronForward style={{ width: arrowWidth, height: arrowHeight }} onClick={() => paginate(1)} />
                 </div>
                 <motion.div className={styles.list}>
                     <AnimatePresence initial={false} custom={direction}>
@@ -86,7 +88,7 @@ const ProjectsPage = () => {
                             animate="center"
                             exit="exit"
                             transition={{
-                                x: { type: 'spring', stiffness: 300, damping: 30 },
+                                x: { type: 'spring', stiffness: 200, damping: 20 },
                                 opacity: { duration: 0.2 },
                             }}
                         >
