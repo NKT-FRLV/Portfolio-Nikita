@@ -12,7 +12,7 @@ import emailjs from '@emailjs/browser';
 // import { motion } from 'framer-motion'
 
 const ContactSection = () => {
-    // ???
+    
     const form = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
 
@@ -66,9 +66,12 @@ const ContactSection = () => {
         return
       }
     
-      await emailjs.sendForm('service_5hz413j', 'template_lvw7vlq', form.current, {
-        publicKey: 'jn2OjAJVVCDp5m0XJ',
-      });
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+      );
 
       toast.success('Message successfully sent!', {
         position: 'bottom-center',
