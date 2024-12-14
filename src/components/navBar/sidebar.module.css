@@ -180,6 +180,7 @@
 
     .sidebar {
         width: 50px;
+        box-shadow: none;
     }
 
     .sotialsBarToogler {
