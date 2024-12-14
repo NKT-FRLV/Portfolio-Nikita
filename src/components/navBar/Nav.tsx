@@ -88,7 +88,7 @@ const Nav = ({activeSection, moveToSection}: Props) => {
             <motion.a href="https://github.com/mi-viejo-amigo" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
               <FaGithub size={iconSize} />
             </motion.a>
-            <motion.a href="#" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3 }}>
+            <motion.a href="https://www.linkedin.com/in/nikita-frolov-22a008342/" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3 }}>
               <FaLinkedin size={iconSize} />
             </motion.a>
           </motion.div>
