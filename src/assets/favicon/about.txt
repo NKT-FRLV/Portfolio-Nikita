@@ -1,0 +1,17 @@
+This favicon was generated using the following font: 
+
+
+Font Family: Agbalumo
+
+Font Full Name: Agbalumo Regular
+
+Font Designer: Raphael Alegbeleye 
+
+Font Source: https://fonts.gstatic.com/s/agbalumo/v5/55xvey5uMdT2N37KZcMFirl08KDJ.ttf
+
+Font License: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL (https://scripts.sil.org/OFL)
+
+Font Manufacturer: Sorkin Type Co. (http://sorkintype.com)
+
+Font Version:Version 1.000; ttfautohint (v1.8.4)
+

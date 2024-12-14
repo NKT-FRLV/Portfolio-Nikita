@@ -228,7 +228,7 @@
     top: inherit;
     left: 0;
     right: 0;
-    bottom: -20px;
+    bottom: 20px;
     padding: 2px;
   }
   
@@ -251,16 +251,48 @@
     padding-left: 0;
   }
 
+  .scillCard {
+    width: 80px;
+    height: 45px;
+
+  }
+
   .tabsWrapper {
     top: inherit;
     left: 0;
     right: 0;
-    bottom: -20px;
+    bottom: 20px;
     padding: 2px;
   }
 
   .textWrapper {
     padding-left: 0;
+  }
+
+  .textTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .educetionList {
+    gap: 3rem;
+  }
+
+  .educetionTitle {
+    font-size: 1.5rem;
+  }
+
+  .educetionProfesion {
+    font-size: 1.8rem;
+  }
+  
+  .educetionContent {
+    font-size: 1.6rem;
+  }
+
+  .text {
+    font-size: 1.8rem;
+
   }
 
 }

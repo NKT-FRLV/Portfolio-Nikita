@@ -23,7 +23,7 @@ const CanvasScene = ({ progress }: Props) => {
             shadows
             camera={{ position: [4, 4, 4], fov: 45 }}
           >
-            <color attach="background" args={['#00172b']} />
+            <color attach="background" args={['#001020']} />
             
             {/* Глобальный свет для базовой подсветки сцены */}
             <ambientLight intensity={0.5} color="#fff" />
@@ -52,7 +52,7 @@ const CanvasScene = ({ progress }: Props) => {
             {/* <RandomStars /> */}
             
             {/* Туман */}
-            <fog attach="fog" args={['#000010', 10, 50]} />
+            <fog attach="fog" args={['#00172b', 20, 50]} />
 
             {/* Управление камерой */}
             <OrbitControls

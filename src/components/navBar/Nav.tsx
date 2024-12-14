@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaTelegram, FaInstagram, FaLink } from 'react-icons/fa';
 import { IoHome, IoMail, IoPerson, IoBriefcase } from 'react-icons/io5';
@@ -14,6 +14,10 @@ const Nav = ({activeSection, moveToSection}: Props) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowSize(); // Используем ширину экрана из хука
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [width, activeSection]);
 
   // Определяем размер иконок в зависимости от ширины экрана
   const iconSize = width > 1050 ? 35 : width > 440 ? 30 : 25;

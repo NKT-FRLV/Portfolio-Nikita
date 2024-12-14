@@ -85,9 +85,12 @@ const Cube = ({ progress }: Props) => {
         );
       }
 
-      // Дыхание Шаров
-      // const distanceFactor = Math.sin(time * 2) * 0.2 + 1; // От 0.8 до 1.2
-      // target.multiplyScalar(distanceFactor); // Увеличиваем/уменьшаем расстояние от центра
+      // if (progress === 2 || progress === 1) {
+      //         // Дыхание Шаров
+      //   const distanceFactor = Math.sin(time * 2) * 0.2 + 1; // От 0.8 до 1.2
+      //   target.multiplyScalar(distanceFactor); // Увеличиваем/уменьшаем расстояние от центра
+      // }
+
 
       sphere.position.lerp(target, 0.05); // Плавное движение к цели
     });

@@ -14,7 +14,7 @@ const FlickeringStars: React.FC = () => {
       (starsRef.current.material as PointsMaterial).opacity = time; // Изменение прозрачности
 
       // Добавляем вращение вокруг оси Y
-      starsRef.current.rotation.y += 0.001; // Скорость вращения
+      starsRef.current.rotation.y += 0.0003; // Скорость вращения
     }
   });
 

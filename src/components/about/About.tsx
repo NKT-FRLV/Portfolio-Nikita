@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useAnimatedLetters } from '../animatedLetters/hook'
 import Section from '../section/Section'
 import Tab from '../tab/Tab'
@@ -22,8 +22,40 @@ const About = () => {
     const { letterClass, animationContainerRef, isInView } = useAnimatedLetters({
       threshold: 0.6,
       animationDuration: 1700,
-    })
+    });
+
     const [activeTab, setActiveTab] = useState<'About' | 'Skills' | 'Education'>('Skills');
+    const [ userInteracted, setUserInteracted ] = useState(false);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ссылка на интервал
+
+    useEffect(() => {
+      if (!isInView || userInteracted || intervalRef.current) return;
+  
+      const tabs: Array<'About' | 'Skills' | 'Education'> = ['Skills', 'Education', 'About'];
+      let currentTabIndex = tabs.indexOf(activeTab);
+  
+      intervalRef.current = setInterval(() => {
+        console.log('interval tick');
+        currentTabIndex = (currentTabIndex + 1) % tabs.length;
+        setActiveTab(tabs[currentTabIndex]);
+      }, 2500);
+  
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        } // Очистка интервала при размонтировании или изменении условий
+      };
+    }, [isInView, activeTab, userInteracted]);
+  
+    const handleTabClick = (tab: 'About' | 'Skills' | 'Education') => {
+      setActiveTab(tab); // Меняем активный таб на выбранный
+      if (intervalRef.current) {
+        setUserInteracted(true);
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
 
     const { width } = useWindowSize(); // Используем ширину экрана из хука
 
@@ -41,9 +73,9 @@ const About = () => {
               <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
           </h2>
           <div className={styles.tabsWrapper}>
-            <Tab title="Skills" isActive={activeTab === 'Skills'} handleTabClick={() => setActiveTab('Skills')} borderRadius="10px 0 0 10px" />
-            <Tab title="Education" isActive={activeTab === 'Education'} handleTabClick={() => setActiveTab('Education')} borderRadius="0 0 0 0" />
-            <Tab title="About Me" isActive={activeTab === 'About'} handleTabClick={() => setActiveTab('About')} borderRadius="0 10px 10px 0" />
+            <Tab title="Skills" isActive={activeTab === 'Skills'} handleTabClick={() => handleTabClick('Skills')} borderRadius="10px 0 0 10px" />
+            <Tab title="Education" isActive={activeTab === 'Education'} handleTabClick={() => handleTabClick('Education')} borderRadius="0 0 0 0" />
+            <Tab title="About Me" isActive={activeTab === 'About'} handleTabClick={() => handleTabClick('About')} borderRadius="0 10px 10px 0" />
           </div>
           
           <AnimatePresence mode="wait">
