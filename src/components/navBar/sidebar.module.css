@@ -53,9 +53,10 @@
     text-align: center;
     display: block;
     width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
     border-bottom: 1px solid #00ff8093;
+    border-top: 1px solid #00ff8093;
 }
 
 
@@ -192,8 +193,11 @@
 
     .link {
         font-size: 1.8rem;
-        padding: 10rem 0;
+        padding: 5rem 0;
 
     }
-    
+
+    .resume {
+        padding-bottom: 6rem;
+    }
 }
