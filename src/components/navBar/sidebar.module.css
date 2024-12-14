@@ -198,6 +198,18 @@
     }
 
     .resume {
+        font-size: 1.8rem;
         padding-bottom: 6rem;
+    }
+
+    .sotialsBarToogler {
+        gap: 0.5rem;
+        font-size: 1.8rem;
+        
+    }
+
+    .sotials {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 }
