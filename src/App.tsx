@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import ReactFullpage from '@fullpage/react-fullpage';
+import { useState, useMemo } from 'react';
+import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
 import CanvasScene from './threeJS/canvas/CanvasScene'
 import Nav from './components/navBar/Nav';
@@ -12,12 +12,19 @@ import './App.css'
 
 
 function App() {
-  const [hendleFullpage, setHendleFullpage] = useState<any>(); // Сохраняем API fullpage
+  const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<0 | 1 | 2 | 3>(0); // Индекс текущей секции
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
   // Рассчитываем прогресс как процент
-  const progress = (currentSectionIndex / (anchors.length - 1)) * 100;
+  const progress = useMemo(() => (currentSectionIndex / (anchors.length - 1)) * 100, [currentSectionIndex, anchors.length]);
+
+  const handleSectionChange = (
+    _: Item,
+    destination: Item
+  ): void => {
+    setCurrentSectionIndex(destination.index as 0 | 1 | 2 | 3);
+  };
 
   return (
     <>
@@ -31,14 +38,12 @@ function App() {
       <div className="portfolio">
         <ReactFullpage
           licenseKey={'YOUR_LICENSE_KEY'} 
-          scrollingSpeed={1000}
+          scrollingSpeed={1200}
           credits={{ enabled: false }}
           anchors={anchors}
-          navigation={true}
+          navigation={false}
           // Обновляем индекс текущей секции
-          onLeave={(_, destination) => {
-            setCurrentSectionIndex(destination.index as 0 | 1 | 2 | 3);
-          }}
+          onLeave={handleSectionChange}
           render={({ fullpageApi }) => {
             if (!hendleFullpage) setHendleFullpage(fullpageApi);
             return (
