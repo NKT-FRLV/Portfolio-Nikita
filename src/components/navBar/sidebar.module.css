@@ -216,7 +216,7 @@
 
 @media screen and (max-width: 440px) and (min-device-pixel-ratio: 2) {
     .sidebar {
-        box-shadow: 0 2px 5px #00000021 /* Для Retina-дисплеев */
+        box-shadow: none
     }
 }
 
