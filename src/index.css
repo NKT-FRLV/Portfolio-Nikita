@@ -22,8 +22,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: hidden;
-  /* width: 100vw;
-  height: 100vh; */
+  overflow: hidden; /* Убираем возможность прокрутки */
+  height: 100%; /* Устанавливаем высоту на 100% */
 }
 
 a {
@@ -42,7 +42,8 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  
+  overflow: hidden; /* Убираем возможность прокрутки */
 }
 
 h1 {

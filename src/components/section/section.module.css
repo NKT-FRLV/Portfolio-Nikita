@@ -4,14 +4,13 @@
     justify-content: center;
     align-items: center;
     width: 60vw;
-    height: 100dvh;
+    height: 100vh;
     padding: 1rem 2rem;
 
     scroll-snap-align: start;
     flex-shrink: 0;
     scroll-snap-align: center; 
 
-    /* overflow: hidden; */
 }
 
 @media screen and (max-width: 915px) {
