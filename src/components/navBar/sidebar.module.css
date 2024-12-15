@@ -64,6 +64,7 @@
 .sotialsToolBar {
     display: flex;
     align-self: start;
+    background-color: transparent;
 }
 
 .sotialsBarToogler {
@@ -214,11 +215,11 @@
     }
 }
 
-@media screen and (max-width: 440px) and (min-device-pixel-ratio: 2) {
+/* @media screen and (max-width: 440px) and (min-device-pixel-ratio: 2) {
     .sidebar {
         box-shadow: none
     }
-}
+} */
 
 @supports (height: 100svh) {
     @media screen and (min-device-pixel-ratio: 2) and (max-width: 1024px) and (hover: none) {
