@@ -39,20 +39,13 @@
   /* user-select: none; */
 }
 
-/* .main {
-  display: flex;
-  flex-direction: column;
-  overscroll-behavior: contain;
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  height: 100vh;
-  position: relative;
-} */
+body:not(.fp-responsive) .fp-overflow {
+  max-height: 100dvh !important;
+}
 
-/* .section {
-
-} */
+.fp-is-overflow .fp-overflow.fp-auto-height, .fp-is-overflow .fp-overflow.fp-auto-height-responsive, .fp-is-overflow>.fp-overflow {
+  overflow-y: hidden !important;
+}
 
 .fp-watermark {
   display: none !important;
@@ -141,4 +134,13 @@
     margin-left: 50px;
   }
 
+}
+
+@supports (height: 100svh) {
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 1024px) and (hover: none) {
+
+    body:not(.fp-responsive) .fp-overflow {
+      max-height: 100svh !important;
+    }
+  }
 }

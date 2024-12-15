@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     width: 100px;
-    height: 100vh;
+    height: 100dvh;
     padding: 0.5rem 0;
     background-color: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(2px);
@@ -213,4 +213,13 @@
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
     }
+}
+
+@supports (height: 100svh) {
+    @media screen and (min-device-pixel-ratio: 2) and (max-width: 1024px) and (hover: none) {
+  
+      .sidebar {
+        height: 100svh;
+    }
+  }
 }
