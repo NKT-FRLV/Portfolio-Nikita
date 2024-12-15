@@ -179,8 +179,7 @@
 @media screen and (max-width: 440px) {
 
     .sidebar {
-        width: 50px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+        width: 50px; 
     }
 
     .sotialsBarToogler {
@@ -212,6 +211,12 @@
     .sotials {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 440px) and (min-device-pixel-ratio: 2) {
+    .sidebar {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Для Retina-дисплеев */
     }
 }
 
