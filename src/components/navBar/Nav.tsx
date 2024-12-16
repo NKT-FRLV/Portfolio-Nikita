@@ -4,6 +4,7 @@ import { FaLinkedin, FaGithub, FaTelegram, FaInstagram, FaLink } from 'react-ico
 import { IoHome, IoMail, IoPerson, IoBriefcase } from 'react-icons/io5';
 import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';
+import logo from '../../assets/favicon-120x120.png';
 
 interface Props {
   activeSection: 0 | 1 | 2 | 3;
@@ -29,7 +30,7 @@ const Nav = ({activeSection, moveToSection}: Props) => {
     <nav className={styles.sidebar}>
       <div className={styles.logoContainer}>
         <a href="#" >
-          <img className={styles.logoLink} src="/src/assets/favicon-120x120.png" alt="Logo Nikita Frolov" />
+          <img className={styles.logoLink} src={logo} alt="Logo Nikita Frolov" />
         </a>
       </div>
       <div className={styles.menu}>
