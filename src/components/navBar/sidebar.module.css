@@ -24,12 +24,13 @@
 }
 
 .logoLink {
-    width: 140px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
+    /* opacity: 0.5; */
     overflow: hidden;
-    background-image: url('/src/assets/nkt-logo.png');
     background-size: cover;
     background-position: center;
+    filter: drop-shadow(0 0 15px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
 }
 
 .menu {
@@ -151,8 +152,10 @@
     }
 
     .logoLink {
-        width: 100px;
-        height: 50px;
+        margin-top: 10px;
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 0 10px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
     }
   }
   
@@ -188,8 +191,9 @@
     }
 
     .logoLink {
-        width: 70px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+        filter: drop-shadow(0 0 8px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
     }
 
     .link {
@@ -200,7 +204,7 @@
 
     .resume {
         font-size: 1.8rem;
-        padding-bottom: 6rem;
+        /* padding-bottom: 6rem; */
     }
 
     .sotialsBarToogler {

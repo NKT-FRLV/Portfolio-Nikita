@@ -35,7 +35,6 @@ const About = () => {
       let currentTabIndex = tabs.indexOf(activeTab);
   
       intervalRef.current = setInterval(() => {
-        console.log('interval tick');
         currentTabIndex = (currentTabIndex + 1) % tabs.length;
         setActiveTab(tabs[currentTabIndex]);
       }, 2500);
@@ -89,7 +88,7 @@ const About = () => {
                     transition={{ duration: 0.3}}
                     layout
                     >
-                      <IconContext.Provider value={{ color: 'rgb(200, 137, 230)', size: '40px' }}>
+                      <IconContext.Provider value={{ color: 'rgb(200, 137, 230)'}}>
                         <motion.h2 
                           className={styles.textTitle}
                           animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.6 }}
@@ -98,8 +97,8 @@ const About = () => {
                           Skills & Tecnologies
                         </motion.h2>
                         <ul className={styles.skillsContainer}>
-                            {skills.map((skill, index) => (
-                                <Tooltip key={index} title={skill.name} arrow>
+                            {skills.map((skill) => (
+                                <Tooltip key={skill.name} title={skill.name} arrow>
                                 <motion.li className={styles.scillCard} whileHover={{ scale: 1.1 }}>
                                   <skill.icon size={iconSizeSkills} />
                                 </motion.li>
@@ -115,8 +114,8 @@ const About = () => {
                           Languages
                         </motion.h2>
                         <ul className={styles.languagesContainer}>
-                            {languages.map((language, index) => (
-                              <Tooltip title={language.name} key={index} arrow>
+                            {languages.map((language) => (
+                              <Tooltip title={language.name} key={language.name} arrow>
                                 <motion.li
                                   className={clsx(styles.scillCard, styles.flag)}
                                   whileHover={{ scale: 1.1, opacity: 1 }}
@@ -147,9 +146,9 @@ const About = () => {
                           My Education
                     </motion.h2>
                       <ul className={styles.educetionList}>
-                      { myEducation.map((item, index) => (
-                        <Tooltip title={item.info} key={index} placement="right" arrow >
-                          <li key={index} className={styles.educetionCard}>
+                      { myEducation.map((item) => (
+                        <Tooltip title={item.info} key={item.info} placement="right" arrow >
+                          <li className={styles.educetionCard}>
                             <div className={styles.educetionHeading}>
                               <div className={styles.educetionTitleWrapper}>
                                 { item.logo && <div className={styles.educationLogo}>

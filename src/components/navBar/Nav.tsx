@@ -28,7 +28,9 @@ const Nav = ({activeSection, moveToSection}: Props) => {
     
     <nav className={styles.sidebar}>
       <div className={styles.logoContainer}>
-        <a href="#" className={styles.logoLink}/>
+        <a href="#" >
+          <img className={styles.logoLink} src="/src/assets/favicon-120x120.png" alt="Logo Nikita Frolov" />
+        </a>
       </div>
       <div className={styles.menu}>
         <a className={styles.link} href="#" onClick={() => moveToSection('home')}>

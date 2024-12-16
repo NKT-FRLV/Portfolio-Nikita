@@ -10,20 +10,19 @@ import ProjectsPage from './components/projects-page/ProjectsPage';
 // const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'))
 import './App.css'
 
+type FuncSectionChenger = ( _: Item, destination: Item ) => void
+type SectionIndex = 0 | 1 | 2 | 3
 
 function App() {
   const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
-  const [currentSectionIndex, setCurrentSectionIndex] = useState<0 | 1 | 2 | 3>(0); // Индекс текущей секции
+  const [currentSectionIndex, setCurrentSectionIndex] = useState<SectionIndex>(0); // Индекс текущей секции
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
   // Рассчитываем прогресс как процент
   const progress = useMemo(() => (currentSectionIndex / (anchors.length - 1)) * 100, [currentSectionIndex, anchors.length]);
 
-  const handleSectionChange = (
-    _: Item,
-    destination: Item
-  ): void => {
-    setCurrentSectionIndex(destination.index as 0 | 1 | 2 | 3);
+  const handleSectionChange: FuncSectionChenger = ( _, destination ) => {
+    setCurrentSectionIndex(destination.index as SectionIndex);
   };
 
   return (
