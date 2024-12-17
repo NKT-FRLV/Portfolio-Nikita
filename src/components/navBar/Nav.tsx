@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaTelegram, FaInstagram, FaLink } from 'react-ico
 import { IoHome, IoMail, IoPerson, IoBriefcase } from 'react-icons/io5';
 import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';
-import logo from '../../assets/favicon-120x120.png';
+import logo from '../../assets/VectorNF.svg';
 
 interface Props {
   activeSection: 0 | 1 | 2 | 3;

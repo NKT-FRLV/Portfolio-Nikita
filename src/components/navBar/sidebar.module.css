@@ -30,7 +30,7 @@
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    filter: drop-shadow(0 0 15px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
+    filter: drop-shadow(0 0 15px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
 }
 
 .menu {
@@ -155,7 +155,7 @@
         margin-top: 10px;
         width: 60px;
         height: 60px;
-        filter: drop-shadow(0 0 10px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
+        filter: drop-shadow(0 0 10px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
     }
   }
   
@@ -193,7 +193,7 @@
     .logoLink {
         width: 45px;
         height: 45px;
-        filter: drop-shadow(0 0 8px rgba(225, 221, 0, 0.5)) hue-rotate(774deg);
+        filter: drop-shadow(0 0 8px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
     }
 
     .link {

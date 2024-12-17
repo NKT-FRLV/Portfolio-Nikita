@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { BoxGeometry, Mesh, LineSegments, Vector3 } from 'three';
+import { BoxGeometry, Mesh, LineSegments, Vector3, Group } from 'three';
 import { useSprings, a, useSpring } from '@react-spring/three';
 import {
   calculateRingPositions,
@@ -18,6 +18,7 @@ const Cube = ({ progress }: Props) => {
   const edgesRef = useRef<LineSegments>(null);
   const cubeRef = useRef<Mesh>(null);
   const sphereRefs = useRef<Mesh[]>([]);
+  const parentRef = useRef<Group>(null); // Новый контейнер для вращения
   const [targetPositions, setTargetPositions] = useState(randomPositions);
 
   // Спринг для вращения куба
@@ -96,23 +97,32 @@ const Cube = ({ progress }: Props) => {
     });
   });
 
+    // Добавляем плавное вращение для родительского контейнера
+    useFrame(() => {
+      if (parentRef.current) {
+        parentRef.current.rotation.y -= 0.002; // Плавное вращение вокруг оси Y
+        parentRef.current.rotation.x -= 0.003;
+      }
+    });
+
   return (
     <>
-    <a.mesh ref={cubeRef} rotation={rotation}>
-      <boxGeometry args={[0.8, 0.8, 0.8]} />
-      <meshStandardMaterial color="black" transparent opacity={0.9} />
+    <group ref={parentRef}>
+      <a.mesh ref={cubeRef} rotation={rotation}>
+        <boxGeometry args={[0.8, 0.8, 0.8]} />
+        <meshStandardMaterial color="black" transparent opacity={0.95} metalness={0.6} roughness={0.6} />
 
-      {/* Линии границ */}
-      <lineSegments ref={edgesRef}>
-        <edgesGeometry attach="geometry" args={[new BoxGeometry(0.8, 0.8, 0.8)]} />
-        <lineBasicMaterial attach="material" color="white" transparent opacity={0.5} />
-      </lineSegments>
+        {/* Линии границ */}
+        <lineSegments ref={edgesRef}>
+          <edgesGeometry attach="geometry" args={[new BoxGeometry(0.8, 0.8, 0.8)]} />
+          <lineBasicMaterial attach="material" color="white" transparent opacity={0.3} />
+        </lineSegments>
 
-      
-    </a.mesh>
-    
+        
+      </a.mesh>
+    </group>
     {/* Анимированные сферы */}
-    <mesh>
+    <a.mesh>
       {springs.map((spring, index) => (
         <Sphere
           key={index}
@@ -123,7 +133,7 @@ const Cube = ({ progress }: Props) => {
           }}
         />
       ))}
-    </mesh>
+    </a.mesh>
     </>
   );
 };

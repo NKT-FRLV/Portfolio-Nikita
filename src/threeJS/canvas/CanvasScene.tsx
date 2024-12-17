@@ -21,7 +21,7 @@ const CanvasScene = ({ progress }: Props) => {
       <Suspense fallback={null}>
           <Canvas
             shadows
-            camera={{ position: [4, 4, 4], fov: 45 }}
+            camera={{ position: [5, 5, 5], fov: 35 }}
           >
             <color attach="background" args={['#001020']} />
             
