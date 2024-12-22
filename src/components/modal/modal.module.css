@@ -19,7 +19,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 400px;
+
+    max-width: min(80%, 400px);
     max-height: fit-content;
     color: rgb(0, 0, 0);
     padding: 0.6em 1.2em;
