@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  /* background: radial-gradient(circle at center, #121212, #000000, #121212); */
+  /* overflow: hidden; */
+  /* border-radius: 16px; */
+}
+
+
+.logo {
+  position: relative;
+  width: 90%;
+  height: auto;
+  z-index: 1;
+}
+
+.logo:focus {
+  outline: none;
+}
+
+.logo:focus-visible {
+  outline: 1px solid #fff;
+}

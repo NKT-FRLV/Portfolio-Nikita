@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
 import CanvasScene from './threeJS/canvas/CanvasScene'
@@ -7,7 +7,6 @@ import Home from './components/home/Home';
 import About from './components/about/About';
 import ContactSection from './components/contactSection/ContactSection';
 import ProjectsPage from './components/projects-page/ProjectsPage';
-// const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'))
 import './App.css'
 
 type FuncSectionChenger = ( _: Item, destination: Item ) => void
@@ -19,11 +18,13 @@ function App() {
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
   // Рассчитываем прогресс как процент
-  const progress = useMemo(() => (currentSectionIndex / (anchors.length - 1)) * 100, [currentSectionIndex, anchors.length]);
+  const progress = currentSectionIndex / (anchors.length - 1);
 
-  const handleSectionChange: FuncSectionChenger = ( _, destination ) => {
+  const handleSectionChange: FuncSectionChenger = useCallback(( _, destination ) => {
     setCurrentSectionIndex(destination.index as SectionIndex);
-  };
+  }, []);
+  
+  const hendleMoveToSection = useCallback((section: string) => hendleFullpage?.moveTo(section), [hendleFullpage]);
 
   return (
     <>
@@ -32,7 +33,7 @@ function App() {
         progress={currentSectionIndex}
       />
 
-      <Nav activeSection={currentSectionIndex} moveToSection={(section) => hendleFullpage?.moveTo(section)} />
+      <Nav activeSection={currentSectionIndex} moveToSection={hendleMoveToSection} />
 
       <div className="portfolio">
         <ReactFullpage
@@ -41,32 +42,34 @@ function App() {
           credits={{ enabled: false }}
           anchors={anchors}
           navigation={false}
+          easing="easeInOutCubic"
           // Обновляем индекс текущей секции
           onLeave={handleSectionChange}
           render={({ fullpageApi }) => {
             if (!hendleFullpage) setHendleFullpage(fullpageApi);
             return (
-              <ReactFullpage.Wrapper>
-                <div className="section">
-                  <Home moveToSection={(section) => hendleFullpage?.moveTo(section)} />
-                </div>
-                <div className="section">
-                  <About />
-                </div>
-                <div className="section">
-                  <ProjectsPage />
-                </div>
-                <div className="section">
-                  <ContactSection />
-                </div>
-              </ReactFullpage.Wrapper>
+                <ReactFullpage.Wrapper>
+                    <div className="section">
+                      <Home moveToSection={(section) => hendleFullpage?.moveTo(section)} />
+                    </div>
+                    <div className="section">
+                      <About />
+                    </div>
+                    <div className="section">
+                      <ProjectsPage />
+                    </div>
+                    <div className="section">   
+                      <ContactSection />
+                    </div>
+                  
+                </ReactFullpage.Wrapper>
             );
           }}
         />
         {/* Прогресс-бар */}
         <motion.div
           className="progress"
-          animate={{ scaleX: progress / 100 }}
+          animate={{ scaleX: progress }}
           transition={{ duration: 1, ease: 'easeInOut' }}
         />
       </div>
