@@ -71,7 +71,7 @@ const Nav = ({activeSection, moveToSection}: Props) => {
       <div className={styles.resume}>
         <a
           className={styles.resumeLink}
-          href='documents/CV-Nikita Frolov.pdf'
+          href='documents/CV_Nikita_Frolov.pdf'
           download='Frolov Nikita Resume'
         >
           RESUME
