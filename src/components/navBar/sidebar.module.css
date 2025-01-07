@@ -54,17 +54,18 @@
     text-align: center;
     display: block;
     width: 100%;
+    font-size: 1.2rem;
     padding: 0.5rem;
     color: transparent;
     background-clip: text;
-    -webkit-background-clip: text; /* Для поддержки Safari и Chrome */
-    -webkit-text-fill-color: transparent; /* Делаем текст прозрачным */
-    background-image: radial-gradient(circle, red, green, blue);
-    background-size: 200% 200%; /* Увеличиваем размер градиента для движения */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: radial-gradient(circle, #00ff7f, #646cff, #00ff7f, #646cff, #00ff7f);
+    background-size: 250% 250%; /* Увеличиваем размер градиента для движения */
     margin-bottom: 0.5rem;
     border-bottom: 1px solid #00ff8093;
     border-top: 1px solid #00ff8093;
-    animation: rotateGradient 3s ease-in-out infinite;
+    animation: rotateGradient 5s ease-in-out infinite;
 }
 
 @keyframes rotateGradient {
@@ -177,6 +178,10 @@
         height: 60px;
         filter: drop-shadow(0 0 10px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
     }
+    .resumeLink {
+
+        font-size: 1rem;
+    }
   }
   
 
@@ -199,6 +204,17 @@
     }
     
 }
+
+@media screen and (max-width: 550px) {
+    .sotialsBarToogler {
+        font-size: 2rem;
+    }
+
+    .resumeLink {
+        font-size: 2rem;
+    }
+}
+
 
 @media screen and (max-width: 440px) {
 
@@ -225,6 +241,11 @@
     .resume {
         font-size: 1.8rem;
         /* padding-bottom: 6rem; */
+    }
+
+    .resumeLink {
+
+        font-size: 1.8rem;
     }
 
     .sotialsBarToogler {
