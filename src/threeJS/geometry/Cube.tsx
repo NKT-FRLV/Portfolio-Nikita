@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { SectionContext } from '../../SectionContext';
 import { useFrame } from '@react-three/fiber';
 import { BoxGeometry, Mesh, LineSegments, Vector3, Group } from 'three';
 import { useSprings, a, useSpring } from '@react-spring/three';
@@ -10,11 +11,8 @@ import Sphere from './Sphere';
 
 const randomPositions: [number, number, number][] = generateRandomPositions(12, 2); // 12 точек, разброс до 2 единиц от центра
 
-interface Props {
-  progress: 0 | 1 | 2 | 3
-}
-
-const Cube = ({ progress }: Props) => {
+const Cube = () => {
+  const currentSectionIndex = React.useContext(SectionContext);
   const edgesRef = useRef<LineSegments>(null);
   const cubeRef = useRef<Mesh>(null);
   const sphereRefs = useRef<Mesh[]>([]);
@@ -23,7 +21,7 @@ const Cube = ({ progress }: Props) => {
 
   // Спринг для вращения куба
   const { rotation } = useSpring({
-    rotation: progress === 1 ? [Math.PI * 1.5, 0, 0] : [0, 0, 0], // Вращение на 360 градусов при progress === 2
+    rotation: currentSectionIndex === 1 ? [Math.PI * 1.5, 0, 0] : [0, 0, 0], // Вращение на 360 градусов при currentSectionIndex === 2
     config: { tension: 80, friction: 16 },
   });
 
@@ -41,20 +39,20 @@ const Cube = ({ progress }: Props) => {
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-    if (progress === 0) {
+    if (currentSectionIndex === 0) {
       setTargetPositions(generateRandomPositions(12, 2.5));
       interval = setInterval(() => {
         setTargetPositions(generateRandomPositions(12, 2.5));
       }, 3000);
-    } else if (progress === 1) {
+    } else if (currentSectionIndex === 1) {
       setTargetPositions(calculateRingPositions(1.2, randomPositions.length));
-    } else if (progress === 2) {
+    } else if (currentSectionIndex === 2) {
       setTargetPositions(generateRandomPositions(12, 2.5));
     }
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [progress]);
+  }, [currentSectionIndex]);
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime();
@@ -63,7 +61,7 @@ const Cube = ({ progress }: Props) => {
       if (!sphere) return;
 
       let target: Vector3;
-      if (progress === 3) {
+      if (currentSectionIndex === 3) {
         // Траектории React-style
         const numOrbits = 3; // Количество орбит
         const orbitIndex = index % numOrbits;
@@ -127,7 +125,7 @@ const Cube = ({ progress }: Props) => {
         <Sphere
           key={index}
           position={spring.position}
-          emissiveColor={progress === 3 ? '#00ff7f' : 'black'}
+          emissiveColor={currentSectionIndex === 3 ? '#00ff7f' : 'black'}
           ref={(ref) => {
             if (ref) sphereRefs.current[index] = ref;
           }}

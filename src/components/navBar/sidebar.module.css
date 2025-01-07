@@ -70,17 +70,15 @@
 
 @keyframes rotateGradient {
     0% {
-        background-position: 0% 50%; /* Градиент слева */
+        background-position: 0% 50%;
     }
     50% {
-        background-position: 100% 50%; /* Градиент справа */
+        background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%; /* Возвращаемся обратно */
+        background-position: 0% 50%;
     }
 }
-
-
 
 
 .sotialsToolBar {

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { SectionContext } from './SectionContext';
 import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
 import CanvasScene from './threeJS/canvas/CanvasScene'
@@ -11,6 +12,7 @@ import './App.css'
 
 type FuncSectionChenger = ( _: Item, destination: Item ) => void
 type SectionIndex = 0 | 1 | 2 | 3
+
 
 function App() {
   const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
@@ -29,9 +31,12 @@ function App() {
   return (
     <>
       {/* через портал рендерится в threeJS div */}
-      <CanvasScene 
-        progress={currentSectionIndex}
-      />
+      
+      <div id="threejs">
+        <SectionContext.Provider value={currentSectionIndex}>
+          <CanvasScene />
+        </SectionContext.Provider>
+      </div>
 
       <Nav activeSection={currentSectionIndex} moveToSection={hendleMoveToSection} />
 

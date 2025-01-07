@@ -1,5 +1,4 @@
-import { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Suspense, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
@@ -7,15 +6,25 @@ import Cube from '../geometry/Cube';
 import FlickeringStars from '../stars/FlickeringStars';
 import FlickeringPoints from '../stars/FlickeringPoints';
 
+// Оборачиваем компоненты звезд в React.memo для предотвращения рендера
+const MemoizedFlickeringStars = React.memo(FlickeringStars);
+const MemoizedFlickeringPoints = React.memo(FlickeringPoints);
 
-interface Props {
-  progress: 0 | 1 | 2 | 3
-}
 
-const CanvasScene = ({ progress }: Props) => {
-  const threejsDiv = document.getElementById('threejs');
 
-  return threejsDiv ? ReactDOM.createPortal((
+const CanvasScene = React.memo(() => {
+  
+  // const threejsDiv = document.getElementById('threejs');
+
+    // Создаем неизменяемую сцену звезд
+    const starsScene = useMemo(() => (
+      <>
+        <MemoizedFlickeringStars />
+        <MemoizedFlickeringPoints />
+      </>
+    ), []);
+
+  return (
     <>
     <div className='background'>
       <Suspense fallback={null}>
@@ -44,15 +53,14 @@ const CanvasScene = ({ progress }: Props) => {
             <pointLight position={[-5, 5, -5]} intensity={0.3} color="#ffccaa" />
 
             {/* Куб */}
-            <Cube progress={progress} />
+            <Cube />
 
-            {/* Звёзды */}
-            <FlickeringStars />
-            <FlickeringPoints />
-            {/* <RandomStars /> */}
+            {/* Мемоизарованная Сцена Звезд */}
+            {starsScene}
+
             
             {/* Туман */}
-            <fog attach="fog" args={['#00172b', 20, 50]} />
+            <fog attach="fog" args={['#00172b', 10, 60]} />
 
             {/* Управление камерой */}
             <OrbitControls
@@ -71,7 +79,7 @@ const CanvasScene = ({ progress }: Props) => {
         </Suspense>
       </div>
     </>
-  ), threejsDiv) : null;
-};
+  )
+});
 
 export default CanvasScene;
