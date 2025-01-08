@@ -9,7 +9,14 @@ import {
 } from './utils';
 import Sphere from './Sphere';
 
-const randomPositions: [number, number, number][] = generateRandomPositions(12, 2); // 12 точек, разброс до 2 единиц от центра
+// const randomPositions: [number, number, number][] = generateRandomPositions(12, 2);
+
+const randomSpherePositions: Record<number, [number, number, number][][]> = {
+  0: Array.from({ length: 5 }, () => generateRandomPositions(12, 2.5)), // Генерируем 5 массивов случайных позиций
+  1: [calculateRingPositions(1.2, 12)], // Один набор позиций для кольца
+  2: [generateRandomPositions(12, 2.5)], // Один массив случайных позиций
+  3: [generateRandomPositions(12, 2.5)], // Один массив случайных позиций (НЕ ИСПОЛЬЗУЕТСЯ)
+};
 
 const Cube = () => {
   const currentSectionIndex = React.useContext(SectionContext);
@@ -17,7 +24,7 @@ const Cube = () => {
   const cubeRef = useRef<Mesh>(null);
   const sphereRefs = useRef<Mesh[]>([]);
   const parentRef = useRef<Group>(null); // Новый контейнер для вращения
-  const [targetPositions, setTargetPositions] = useState(randomPositions);
+  const [targetPositions, setTargetPositions] = useState(randomSpherePositions[0][0]);
 
   // Спринг для вращения куба
   const { rotation } = useSpring({
@@ -39,16 +46,19 @@ const Cube = () => {
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
+
     if (currentSectionIndex === 0) {
-      setTargetPositions(generateRandomPositions(12, 2.5));
+      // Устанавливаем один из заранее подготовленных массивов
+      setTargetPositions(randomSpherePositions[0][0]);
       interval = setInterval(() => {
-        setTargetPositions(generateRandomPositions(12, 2.5));
-      }, 3000);
-    } else if (currentSectionIndex === 1) {
-      setTargetPositions(calculateRingPositions(1.2, randomPositions.length));
-    } else if (currentSectionIndex === 2) {
-      setTargetPositions(generateRandomPositions(12, 2.5));
+        const randomIndex = Math.floor(Math.random() * randomSpherePositions[0].length);
+        setTargetPositions(randomSpherePositions[0][randomIndex]);
+      }, 3000); // Меняем позиции каждые 3 секунды
+    } else if (randomSpherePositions[currentSectionIndex] && currentSectionIndex !== 3) {
+      // Устанавливаем подготовленный массив для других секций
+      setTargetPositions(randomSpherePositions[currentSectionIndex][0]);
     }
+
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -83,13 +93,6 @@ const Cube = () => {
           targetPositions[index][2]
         );
       }
-
-      // if (progress === 2 || progress === 1) {
-      //         // Дыхание Шаров
-      //   const distanceFactor = Math.sin(time * 2) * 0.2 + 1; // От 0.8 до 1.2
-      //   target.multiplyScalar(distanceFactor); // Увеличиваем/уменьшаем расстояние от центра
-      // }
-
 
       sphere.position.lerp(target, 0.05); // Плавное движение к цели
     });
