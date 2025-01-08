@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { SectionContext } from './SectionContext';
 import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
@@ -15,9 +15,17 @@ type SectionIndex = 0 | 1 | 2 | 3
 
 
 function App() {
-  const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
+  // const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<SectionIndex>(0); // Индекс текущей секции
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
+
+  const fullpageApiRef = useRef<fullpageApi | null>(null);
+
+  const setFullpageApi = (api: fullpageApi) => {
+    if (!fullpageApiRef.current) {
+      fullpageApiRef.current = api;
+    }
+  };
 
   // Рассчитываем прогресс как процент
   const progress = currentSectionIndex / (anchors.length - 1);
@@ -26,7 +34,7 @@ function App() {
     setCurrentSectionIndex(destination.index as SectionIndex);
   }, []);
   
-  const hendleMoveToSection = useCallback((section: string) => hendleFullpage?.moveTo(section), [hendleFullpage]);
+  const hendleMoveToSection = useCallback((section: string) => fullpageApiRef.current?.moveTo(section), [fullpageApiRef]);
 
   return (
     <>
@@ -51,11 +59,13 @@ function App() {
           // Обновляем индекс текущей секции
           onLeave={handleSectionChange}
           render={({ fullpageApi }) => {
-            if (!hendleFullpage) setHendleFullpage(fullpageApi);
+            if (!fullpageApi) {
+              setFullpageApi(fullpageApi)
+            }
             return (
                 <ReactFullpage.Wrapper>
                     <div className="section">
-                      <Home moveToSection={(section) => hendleFullpage?.moveTo(section)} />
+                      <Home moveToSection={(section) => fullpageApiRef.current?.moveTo(section)} />
                     </div>
                     <div className="section">
                       <About />
