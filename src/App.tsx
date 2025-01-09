@@ -59,9 +59,7 @@ function App() {
           // Обновляем индекс текущей секции
           onLeave={handleSectionChange}
           render={({ fullpageApi }) => {
-            if (!fullpageApi) {
-              setFullpageApi(fullpageApi)
-            }
+              setFullpageApi(fullpageApi);
             return (
                 <ReactFullpage.Wrapper>
                     <div className="section">
