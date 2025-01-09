@@ -79,7 +79,7 @@ const Nav = ({activeSection, moveToSection}: Props) => {
         <div className={styles.sotialsToolBar}>
           <div className={styles.sotialsBarToogler} onClick={() => setIsOpen(!isOpen)}>
             <FaLink size={iconSotialSize}/>
-            Sotials
+            Socials
           </div>
           <motion.div
             className={styles.sotials}
