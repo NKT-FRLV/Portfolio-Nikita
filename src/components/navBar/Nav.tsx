@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaTelegram, FaInstagram, FaLink } from 'react-icons/fa';
 import { IoHome, IoMail, IoPerson, IoBriefcase } from 'react-icons/io5';
 import styles from './sidebar.module.css'
@@ -87,18 +87,31 @@ const Nav = ({activeSection, moveToSection}: Props) => {
             animate={{ opacity: isOpen ? 1 : 0.5, width: isOpen ? linksBlockWidth : 10, paddingLeft: isOpen ? 16 : 0, paddingRight: isOpen ? 16 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.a href="https://web.telegram.org/k/#-955617383" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
-              <FaTelegram size={iconSize} />
-            </motion.a>
-            <motion.a href="https://www.instagram.com/nkt.frlv/" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
-              <FaInstagram size={iconSize} />
-            </motion.a>
-            <motion.a href="https://github.com/mi-viejo-amigo" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
-              <FaGithub size={iconSize} />
-            </motion.a>
-            <motion.a href="https://www.linkedin.com/in/nikita-frolov-22a008342/" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3 }}>
-              <FaLinkedin size={iconSize} />
-            </motion.a>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                key="socialLinks"
+                className={styles.sotialsWrapper}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.3 }}
+              >
+                    <motion.a href="https://web.telegram.org/k/#-955617383" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
+                      <FaTelegram size={iconSize} />
+                    </motion.a>
+                    <motion.a href="https://www.instagram.com/nkt.frlv/" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
+                      <FaInstagram size={iconSize} />
+                    </motion.a>
+                    <motion.a href="https://github.com/mi-viejo-amigo" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3}}>
+                      <FaGithub size={iconSize} />
+                    </motion.a>
+                    <motion.a href="https://www.linkedin.com/in/nikita-frolov-22a008342/" target="_blank" style={{width: iconSize, height: iconSize}} animate={{ opacity: isOpen ? 1 : 0 }} transition={{ duration: 0.3 }}>
+                      <FaLinkedin size={iconSize} />
+                    </motion.a>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </div>

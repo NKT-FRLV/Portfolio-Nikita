@@ -104,16 +104,22 @@
 }
 
 .sotials {
-    display: flex;
-    align-items: center;
+
+    min-height: 67px; 
     padding-top: 1rem;
     padding-bottom: 1rem;
-    gap: 1.5rem;
+    
     background-color: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(2px);
     border-radius: 0 8px 8px 0;
     overflow: hidden;
     /* transition: transform 0.3s ease-in-out; */
+}
+
+.sotialsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .sotials a {
@@ -170,6 +176,10 @@
         width: 70px;
     }
 
+    .sotials {
+        min-height: 58px; 
+    }
+
     .logoLink {
         margin-top: 10px;
         width: 60px;
@@ -208,6 +218,10 @@
         font-size: 2rem;
     }
 
+    .sotials {
+        min-height: 50px; 
+    }
+
     .resumeLink {
         font-size: 2rem;
     }
@@ -222,6 +236,10 @@
 
     .sotialsBarToogler {
         width: 50px;
+    }
+
+    .sotials {
+        min-height: 43px; 
     }
 
     .logoLink {
