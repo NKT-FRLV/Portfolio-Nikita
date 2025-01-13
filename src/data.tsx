@@ -1,5 +1,5 @@
 import { FaUniversity, FaGraduationCap, FaSwimmer } from 'react-icons/fa';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaGit } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaGit, FaInstagram, FaTelegram, FaLinkedin } from 'react-icons/fa';
 import { SiTypescript, SiThreedotjs, SiRedux, SiOpenai, SiVite, SiWebpack, SiJest, SiCypress } from 'react-icons/si';
 import { IoSparkles } from 'react-icons/io5';
 import Flags from 'react-world-flags';
@@ -119,3 +119,12 @@ export const projects: {
     urlDemo: 'https://blog-customizer-puce.vercel.app/',
   },
 ];
+
+type iconSizeType = 35 | 30 | 25
+
+export const socialsLinks = [
+  { id: 'github', link: 'https://github.com/mi-viejo-amigo', iconFunc: (size: iconSizeType) => <FaGithub size={size} /> },
+  { id: 'instagram', link: "https://www.instagram.com/nkt.frlv/", iconFunc: (size: iconSizeType) => <FaInstagram size={size} /> },
+  { id: 'telegram', link: 'https://web.telegram.org/k/#-955617383', iconFunc: (size: iconSizeType) => <FaTelegram size={size} /> },
+  { id: 'linkedin', link: 'https://www.linkedin.com/in/nikita-frolov-22a008342/', iconFunc: (size: iconSizeType) => <FaLinkedin size={size} /> },
+]
