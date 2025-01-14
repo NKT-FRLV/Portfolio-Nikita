@@ -6,14 +6,21 @@ import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';
 import { socialsLinks } from '../../data';
 // import logo from '../../assets/VectorNF.svg';
+// import 'antd/dist/reset.css';
+import { Switch, ConfigProvider  } from 'antd';
+import { FireFilled, ThunderboltFilled } from '@ant-design/icons';
 import LogoSVG from '../logo/Logo';
+
+
 
 interface Props {
   activeSection: 0 | 1 | 2 | 3;
   moveToSection: (section: string) => void;
+  toogleTheme: () => void
+  themeState: boolean
 }
 
-const Nav = ({activeSection, moveToSection}: Props) => {
+const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowSize(); // Используем ширину экрана из хука
@@ -27,6 +34,14 @@ const Nav = ({activeSection, moveToSection}: Props) => {
   const iconSotialSize = width > 1050 ? 25 : 20;
   const linksBlockWidth = width > 1050 ? 250 : width > 550 ? 220 : 180;
 
+  const switchTheme = {
+    token: {
+      colorPrimary: '#00a553d8', // Основной цвет для включенного состояния
+      colorTextBase: '#000',
+      colorText: '#fff',
+    },
+  };
+
 
   return (
     
@@ -36,6 +51,17 @@ const Nav = ({activeSection, moveToSection}: Props) => {
           <LogoSVG />
         </a>
       </div>
+      <ConfigProvider theme={switchTheme}>
+        <div className={styles.switchWrapper}>
+          <Switch
+            checkedChildren={<FireFilled />}
+            unCheckedChildren={<ThunderboltFilled />}
+            className={styles.switch}
+            value={themeState}
+            onClick={() => toogleTheme()}
+          />
+        </div>
+      </ConfigProvider>
       <div className={styles.menu}>
         <a className={styles.link} href="#" onClick={() => moveToSection('home')}>
           <span className={styles.linkIcon}>

@@ -24,6 +24,7 @@ const Cube = () => {
   const cubeRef = useRef<Mesh>(null);
   const sphereRefs = useRef<Mesh[]>([]);
   const parentRef = useRef<Group>(null); // Новый контейнер для вращения
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [targetPositions, setTargetPositions] = useState(randomSpherePositions[0][0]);
 
   // Спринг для вращения куба
@@ -45,12 +46,11 @@ const Cube = () => {
   }, [targetPositions, api]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
 
     if (currentSectionIndex === 0) {
       // Устанавливаем один из заранее подготовленных массивов
       setTargetPositions(randomSpherePositions[0][0]);
-      interval = setInterval(() => {
+      intervalRef.current = setInterval(() => {
         const randomIndex = Math.floor(Math.random() * randomSpherePositions[0].length);
         setTargetPositions(randomSpherePositions[0][randomIndex]);
       }, 3000); // Меняем позиции каждые 3 секунды
@@ -60,7 +60,7 @@ const Cube = () => {
     }
 
     return () => {
-      if (interval) clearInterval(interval);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [currentSectionIndex]);
 
@@ -126,7 +126,7 @@ const Cube = () => {
     <a.mesh>
       {springs.map((spring, index) => (
         <Sphere
-          key={index}
+        key={`${spring.position}-${index}`}
           position={spring.position}
           emissiveColor={currentSectionIndex === 3 ? '#00ff7f' : 'black'}
           ref={(ref) => {

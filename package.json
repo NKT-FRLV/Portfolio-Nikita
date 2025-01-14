@@ -12,8 +12,6 @@
   "dependencies": {
     "@ap.cx/react-fullpage": "^0.3.0",
     "@emailjs/browser": "^4.4.1",
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -25,8 +23,10 @@
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
     "@react-three/postprocessing": "^2.16.3",
+    "antd": "^5.23.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.12.0",
+    "lodash": "^4.17.21",
     "motion": "^11.15.0",
     "popmotion": "^11.0.5",
     "react": "^18.3.1",
@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
+    "@types/lodash": "^4.17.14",
     "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

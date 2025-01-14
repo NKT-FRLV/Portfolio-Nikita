@@ -2,13 +2,14 @@ import React, { Suspense, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { motion } from 'framer-motion';
 import Cube from '../geometry/Cube';
 import FlickeringStars from '../stars/FlickeringStars';
-import FlickeringPoints from '../stars/FlickeringPoints';
+import FlickeringPointsWithTorus from '../stars/FlickeringPoints';
 
 // Оборачиваем компоненты звезд в React.memo для предотвращения рендера
 const MemoizedFlickeringStars = React.memo(FlickeringStars);
-const MemoizedFlickeringPoints = React.memo(FlickeringPoints);
+const MemoizedFlickeringPoints = React.memo(FlickeringPointsWithTorus);
 
 
 
@@ -26,7 +27,13 @@ const CanvasScene = React.memo(() => {
 
   return (
     <>
-    <div className='background'>
+    <motion.div
+      className='background'
+      initial={{ opacity: 0}}
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0}}
+      transition={{ duration: 2, ease: 'easeOut' }}
+    >
       <Suspense fallback={null}>
           <Canvas
             shadows
@@ -77,7 +84,7 @@ const CanvasScene = React.memo(() => {
             </EffectComposer>
           </Canvas>
         </Suspense>
-      </div>
+      </motion.div>
     </>
   )
 });

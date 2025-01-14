@@ -33,6 +33,18 @@
     filter: drop-shadow(0 0 15px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
 }
 
+.switchWrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    transform: initial !important;
+    width: 50px;
+}
+
 .menu {
     display: flex;
     flex: 6;
