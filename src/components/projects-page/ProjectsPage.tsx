@@ -66,7 +66,7 @@ const ProjectsPage = () => {
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             className={styles.project}
-                            key={projectIndex} // Используем page как ключ для анимации
+                            key={projectIndex}
                             custom={direction}
                             variants={variants}
                             initial="enter"

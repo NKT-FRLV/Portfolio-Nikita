@@ -41,7 +41,6 @@
 }
 
 .switch {
-    transform: initial !important;
     width: 50px;
 }
 
@@ -241,6 +240,10 @@
 
 
 @media screen and (max-width: 440px) {
+
+    .switch {
+        width: 30px;
+    }
 
     .sidebar {
         width: 50px; 

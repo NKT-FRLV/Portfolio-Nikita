@@ -37,8 +37,6 @@ const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => 
   const switchTheme = {
     token: {
       colorPrimary: '#00a553d8', // Основной цвет для включенного состояния
-      colorTextBase: '#000',
-      colorText: '#fff',
     },
   };
 
@@ -57,6 +55,7 @@ const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => 
             checkedChildren={<FireFilled />}
             unCheckedChildren={<ThunderboltFilled />}
             className={styles.switch}
+            style={{ transform: 'initial'}}
             value={themeState}
             onClick={() => toogleTheme()}
           />

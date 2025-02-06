@@ -7,6 +7,7 @@ import mestoImage from './assets/mesto.png'
 import stellarBurgersImage from './assets/stellar-burgers.png'
 import closingTagImage from './assets/closing-tag-screen.png'
 import blogCustomizerImage from './assets/blog-customizer.png'
+import ticTacToeImage from './assets/gameAI.png'
 
 
 
@@ -118,6 +119,14 @@ export const projects: {
     urlGitHub: 'https://github.com/mi-viejo-amigo/blog-customizer',
     urlDemo: 'https://blog-customizer-puce.vercel.app/',
   },
+  {
+    title: 'tic-tac-toe game',
+    image: ticTacToeImage,
+    description: 'Game with 3 modes: "Standart" - represents normal tic-tac-toe game, "Half"- represents the same game but with my own rules. And last but not least "AI" - represents tic-tac-toe game with artificial intelligence.',
+    tecnologies: ['React.js', 'TypeScript', 'Vite', 'OpenAI-API', 'AI-Integration'],
+    urlGitHub: 'https://github.com/mi-viejo-amigo/tic-tak-toe_client',
+    urlDemo: 'https://tic-tak-toe-client.vercel.app/',
+  }
 ];
 
 type iconSizeType = 35 | 30 | 25
