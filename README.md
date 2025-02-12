@@ -1,53 +1,65 @@
 
-# Enabled on link direction - [portfolio-nikita-bjrs.vercel.app]
+# 🌌 Portfolio – Nikita Frolov  
 
-# React + TypeScript + Vite
+🔗 **Live Demo:** [portfolio-nikita-bjrs.vercel.app](https://portfolio-nikita-bjrs.vercel.app/)  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## **About the Project**  
+This is my personal **portfolio website**, built with **React, TypeScript, and Vite**. The goal was to keep it simple yet engaging, featuring **smooth section scrolling, a 3D cosmic background, and an interactive UI**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ **Key features:**  
+- **Smooth scrolling** between sections using a third-party library 🔄  
+- **3D cosmic background** built with **Three.js Fiber**, featuring models that react to scroll 🎥  
+- **Sidebar navigation** with:  
+  - Section switching  
+  - Theme toggle 🌗  
+  - Resume download 📄  
+  - Quick access to social links 🌍  
 
-## Expanding the ESLint configuration
+📌 **Portfolio Sections:**  
+1️⃣ **Home:** A welcome screen with sidebar navigation 🌟  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2️⃣ **Skills Gallery:** A collection of cards displaying:  
+   - Programming languages  
+   - Technologies like React & TypeScript  
+   - Studied languages: Russian, English, Spanish 🌍  
+   - Education details 🎓
+   - 
+3️⃣ **Projects Gallery:** Each project has:  
+   - A **GitHub repository link**  
+   - A **Live Demo link** for direct exploration 🚀 
+   
+4️⃣ **Contact Form:** Allows users to send a message via email, with **light validation** 📩  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## **Tech Stack & Libraries**  
+- **React + TypeScript + Vite** 🚀  
+- **React Router** for navigation 🔀  
+- **Framer Motion** for animations 🎨  
+- **Three.js Fiber** for the interactive 3D background 🌌  
+- **Styled Components / CSS Modules** for styling 🎭  
+
+---
+
+## **Installation & Setup**  
+
+### **1️⃣ Clone the Repository**  
+```bash
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+npm install
+npm run dev
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## **Author**  
+👨‍💻 **Developed by [Nikita Frolov](https://github.com/mi-viejo-amigo)**  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+📩 **Contact me:**  
+- **GitHub:** [mi-viejo-amigo](https://github.com/mi-viejo-amigo)  
+- **LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/nktfrlv)  
+- **Email:** [Letter me](mailto:nkt.frlv7@yandex.ru)  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
