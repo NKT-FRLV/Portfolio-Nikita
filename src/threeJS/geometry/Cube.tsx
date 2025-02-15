@@ -18,6 +18,7 @@ const randomSpherePositions: Record<number, [number, number, number][][]> = {
   3: [generateRandomPositions(12, 2.5)], // Один массив случайных позиций (НЕ ИСПОЛЬЗУЕТСЯ)
 };
 
+
 const Cube = () => {
   const currentSectionIndex = React.useContext(SectionContext);
   const edgesRef = useRef<LineSegments>(null);

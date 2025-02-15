@@ -9,6 +9,7 @@ import closingTagImage from './assets/closing-tag-screen.png'
 import blogCustomizerImage from './assets/blog-customizer.png'
 import ticTacToeImage from './assets/gameAI.png'
 
+const gitHubRepoUrl = 'https://github.com/NKT-FRLV';
 
 
 export const skills: { name: string; percent: number; icon: React.ElementType }[] = [
@@ -92,7 +93,7 @@ export const projects: {
     image: mestoImage,
     description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
     tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/mesto.git',
+    urlGitHub: `${gitHubRepoUrl}/mesto.git`,
     urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
   },
   {
@@ -100,7 +101,7 @@ export const projects: {
     image: closingTagImage,
     description: 'Simple Educational project maden almost by CSS, using diferent types of fonts and animations.',
     tecnologies: ['HTML', 'CSS','JavaScript', 'Variable-Fonts', 'SVG-Animations'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/zakrivayuschiy-teg-f',
+    urlGitHub: `${gitHubRepoUrl}/zakrivayuschiy-teg-f`,
     urlDemo: 'https://mi-viejo-amigo.github.io/zakrivayuschiy-teg-f/',
   },
   {
@@ -108,7 +109,7 @@ export const projects: {
     image: stellarBurgersImage,
     description: 'A web application that allows users to log in, build custom burgers, place orders, and track order history in real time. The app uses cookies to store user tokens for seamless authentication.',
     tecnologies: ['REACT', 'REDUX-TOOLKIT', 'REACT-ROUTER-DOM', 'TYPESCRIPT', 'COOKIE', 'API', 'SASS'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/stellar-burgers',
+    urlGitHub: `${gitHubRepoUrl}/stellar-burgers`,
     urlDemo: 'https://stellar-burgers-git-main-mi-viejo-amigos-projects.vercel.app/',
   },
   {
@@ -116,7 +117,7 @@ export const projects: {
     image: blogCustomizerImage,
     description: 'An interactive blog page with a unique customization feature. Users can adjust the pages appearance through a convenient sidebar, allowing them to change the font, text and background colors, and control the width of the content section.',
     tecnologies: ['REACT', 'TYPESCRIPT', 'WEBPACK'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/blog-customizer',
+    urlGitHub: `${gitHubRepoUrl}/blog-customizer`,
     urlDemo: 'https://blog-customizer-puce.vercel.app/',
   },
   {
@@ -124,7 +125,7 @@ export const projects: {
     image: ticTacToeImage,
     description: 'Game with 3 modes: "Standart" - represents normal tic-tac-toe game, "Half"- represents the same game but with my own rules. And last but not least "AI" - represents tic-tac-toe game with artificial intelligence.',
     tecnologies: ['React.js', 'TypeScript', 'Vite', 'OpenAI-API', 'AI-Integration'],
-    urlGitHub: 'https://github.com/mi-viejo-amigo/tic-tak-toe_client',
+    urlGitHub: `${gitHubRepoUrl}/tic-tak-toe_client`,
     urlDemo: 'https://tic-tak-toe-client.vercel.app/',
   }
 ];
@@ -132,7 +133,7 @@ export const projects: {
 type iconSizeType = 35 | 30 | 25
 
 export const socialsLinks = [
-  { id: 'github', link: 'https://github.com/mi-viejo-amigo', iconFunc: (size: iconSizeType) => <FaGithub size={size} /> },
+  { id: 'github', link: gitHubRepoUrl, iconFunc: (size: iconSizeType) => <FaGithub size={size} /> },
   { id: 'instagram', link: "https://www.instagram.com/nkt.frlv/", iconFunc: (size: iconSizeType) => <FaInstagram size={size} /> },
   { id: 'telegram', link: 'https://web.telegram.org/k/#-955617383', iconFunc: (size: iconSizeType) => <FaTelegram size={size} /> },
   { id: 'linkedin', link: 'https://www.linkedin.com/in/nikita-frolov-22a008342/', iconFunc: (size: iconSizeType) => <FaLinkedin size={size} /> },

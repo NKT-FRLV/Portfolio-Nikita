@@ -47,7 +47,7 @@ function App() {
     setCurrentSectionIndex(destination.index as SectionIndex);
   }, []);
   
-  const hendleMoveToSection = useCallback((section: string) => fullpageApiRef.current?.moveTo(section), [fullpageApiRef]);
+  const handleMoveToSection = useCallback((section: string) => fullpageApiRef.current?.moveTo(section), [fullpageApiRef]);
   
 
 
@@ -66,7 +66,7 @@ function App() {
 
       <Nav
         activeSection={currentSectionIndex}
-        moveToSection={hendleMoveToSection}
+        moveToSection={handleMoveToSection}
         toogleTheme={toogleTheme}
         themeState={showCanvas}
       />
@@ -81,12 +81,12 @@ function App() {
           easing="easeInOutCubic"
           // Обновляем индекс текущей секции
           onLeave={handleSectionChange}
-          render={({ fullpageApi }) => {
-              setFullpageApi(fullpageApi);
+          render={({ fullpageApi: api }) => {
+              setFullpageApi(api);
             return (
                 <ReactFullpage.Wrapper>
                     <div className="section">
-                      <Home moveToSection={(section) => fullpageApiRef.current?.moveTo(section)} />
+                      <Home moveToSection={handleMoveToSection} />
                     </div>
                     <div className="section">
                       <About />

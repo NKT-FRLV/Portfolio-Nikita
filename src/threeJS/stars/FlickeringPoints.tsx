@@ -6,6 +6,7 @@ const FlickeringPointsWithTorus: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
   const pointsMaterialRef = useRef<THREE.PointsMaterial>(null);
 
+
   // Генерация точек-звезд
   const points = useMemo(() => {
     const positions = [];
