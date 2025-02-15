@@ -1,14 +1,16 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { SectionContext } from './SectionContext';
 import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
-import { motion, AnimatePresence } from 'framer-motion';
-import CanvasScene from './threeJS/canvas/CanvasScene'
+import { motion } from 'framer-motion';
+// import CanvasScene from './threeJS/canvas/CanvasScene'
 import Nav from './components/navBar/Nav';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import ContactSection from './components/contactSection/ContactSection';
 import ProjectsPage from './components/projects-page/ProjectsPage';
 import './App.css';
+
+const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'));
 
 type FuncSectionChenger = ( _: Item, destination: Item ) => void
 type SectionIndex = 0 | 1 | 2 | 3
@@ -18,13 +20,18 @@ function App() {
   // const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<SectionIndex>(0); // Индекс текущей секции
   const [showCanvas, setShowCanvas] = useState<boolean>(false);
+  const [allowDisplay, setAllowDisplay] = useState<boolean>(false);
+  const threeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowCanvas(true);
-    }, 3000)
+      import('./threeJS/canvas/CanvasScene').then(() => {
+        setShowCanvas(true); // Устанавливаем тему после загрузки компонента
+        setAllowDisplay(true);
+      });
+    }, 4500);
     return () => clearTimeout(timer);
-  },[])
+  }, []);
 
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
@@ -36,9 +43,15 @@ function App() {
     }
   };
 
-  const toogleTheme = useCallback(() => {
-      setShowCanvas(prev => !prev);
-  }, [setShowCanvas])
+  const toggleTheme = useCallback(() => {
+    if (!showCanvas) {
+      setAllowDisplay(true); // Включаем `display: block` сразу при включении
+      setShowCanvas(true);
+    } else {
+      setShowCanvas(false);
+      setTimeout(() => setAllowDisplay(false), 600); // Убираем `display: none` после анимации
+    }
+  }, [showCanvas]);
 
   // Рассчитываем прогресс как процент
   const progress = currentSectionIndex / (anchors.length - 1);
@@ -55,19 +68,28 @@ function App() {
   return (
     <>
       {/* через портал рендерится в threeJS div */}
-      
-      <div id="threejs">
+      <motion.div
+        id="threejs"
+        ref={threeRef}
+        initial={{ opacity: 0 }}
+        animate={showCanvas ? { opacity: 1} : { opacity: 0}}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        style={{
+          display: allowDisplay ? "block" : "none", // Не размонтируем, а скрываем
+          pointerEvents: allowDisplay ? "auto" : "none",
+        }}
+      >
         <SectionContext.Provider value={currentSectionIndex}>
-          <AnimatePresence>
-            {showCanvas && <CanvasScene />}
-          </AnimatePresence>
+          <Suspense fallback={null}>
+            <CanvasScene />
+          </Suspense>
         </SectionContext.Provider>
-      </div>
+      </motion.div>
 
       <Nav
         activeSection={currentSectionIndex}
         moveToSection={handleMoveToSection}
-        toogleTheme={toogleTheme}
+        toggleTheme={toggleTheme}
         themeState={showCanvas}
       />
 

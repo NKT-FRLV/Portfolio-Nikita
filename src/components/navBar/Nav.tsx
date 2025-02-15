@@ -5,10 +5,7 @@ import { IoHome, IoMail, IoPerson, IoBriefcase } from 'react-icons/io5';
 import styles from './sidebar.module.css'
 import { useWindowSize } from '../../hooks';
 import { socialsLinks } from '../../data';
-// import logo from '../../assets/VectorNF.svg';
-// import 'antd/dist/reset.css';
-import { Switch, ConfigProvider  } from 'antd';
-import { FireFilled, ThunderboltFilled } from '@ant-design/icons';
+import Switch from '../common/Switch';
 import LogoSVG from '../logo/Logo';
 
 
@@ -16,11 +13,11 @@ import LogoSVG from '../logo/Logo';
 interface Props {
   activeSection: 0 | 1 | 2 | 3;
   moveToSection: (section: string) => void;
-  toogleTheme: () => void
+  toggleTheme: () => void
   themeState: boolean
 }
 
-const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => {
+const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowSize(); // Используем ширину экрана из хука
@@ -34,13 +31,6 @@ const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => 
   const iconSotialSize = width > 1050 ? 25 : 20;
   const linksBlockWidth = width > 1050 ? 250 : width > 550 ? 220 : 180;
 
-  const switchTheme = {
-    token: {
-      colorPrimary: '#00a553d8', // Основной цвет для включенного состояния
-    },
-  };
-
-
   return (
     
     <nav className={styles.sidebar}>
@@ -49,18 +39,12 @@ const Nav = ({activeSection, moveToSection, toogleTheme, themeState}: Props) => 
           <LogoSVG />
         </a>
       </div>
-      <ConfigProvider theme={switchTheme}>
-        <div className={styles.switchWrapper}>
-          <Switch
-            checkedChildren={<FireFilled />}
-            unCheckedChildren={<ThunderboltFilled />}
-            className={styles.switch}
-            style={{ transform: 'initial'}}
-            value={themeState}
-            onClick={() => toogleTheme()}
-          />
-        </div>
-      </ConfigProvider>
+      <div className={styles.switchWrapper}>
+        <Switch
+          value={themeState}
+          onClick={toggleTheme}
+        />
+      </div>
       <div className={styles.menu}>
         <a className={styles.link} href="#" onClick={() => moveToSection('home')}>
           <span className={styles.linkIcon}>

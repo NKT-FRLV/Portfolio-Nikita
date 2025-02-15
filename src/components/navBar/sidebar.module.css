@@ -40,10 +40,6 @@
     align-items: center;
 }
 
-.switch {
-    width: 50px;
-}
-
 .menu {
     display: flex;
     flex: 6;
@@ -241,9 +237,6 @@
 
 @media screen and (max-width: 440px) {
 
-    .switch {
-        width: 30px;
-    }
 
     .sidebar {
         width: 50px; 
