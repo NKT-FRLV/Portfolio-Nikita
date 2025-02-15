@@ -94,7 +94,7 @@ export const projects: {
     description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
     tecnologies: ['JavaScript', 'API', 'HTML', 'CSS'],
     urlGitHub: `${gitHubRepoUrl}/mesto.git`,
-    urlDemo: 'https://mi-viejo-amigo.github.io/mesto/',
+    urlDemo: 'https://NKT-FRLV.github.io/mesto/',
   },
   {
     title: '<Closing tag />',
@@ -102,7 +102,7 @@ export const projects: {
     description: 'Simple Educational project maden almost by CSS, using diferent types of fonts and animations.',
     tecnologies: ['HTML', 'CSS','JavaScript', 'Variable-Fonts', 'SVG-Animations'],
     urlGitHub: `${gitHubRepoUrl}/zakrivayuschiy-teg-f`,
-    urlDemo: 'https://mi-viejo-amigo.github.io/zakrivayuschiy-teg-f/',
+    urlDemo: 'https://NKT-FRLV.github.io/zakrivayuschiy-teg-f/',
   },
   {
     title: 'Stellar Burgers',
