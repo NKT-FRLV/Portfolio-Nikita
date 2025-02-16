@@ -12,9 +12,6 @@ import { FaFileDownload } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip'; // Импорт тултипа
 import clsx from 'clsx';
 
-// interface AboutProps {
-//   sectionRef: React.RefObject<HTMLElement>
-// }
 
 
 const About = () => {

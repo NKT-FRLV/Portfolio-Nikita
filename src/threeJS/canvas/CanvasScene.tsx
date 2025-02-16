@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
@@ -15,8 +15,6 @@ const MemoizedFlickeringPoints = React.memo(FlickeringPointsWithTorus);
 
 const CanvasScene = React.memo(() => {
   
-  // const threejsDiv = document.getElementById('threejs');
-
     // Создаем неизменяемую сцену звезд
     const starsScene = useMemo(() => (
       <>
@@ -34,7 +32,6 @@ const CanvasScene = React.memo(() => {
       exit={{ opacity: 0}}
       transition={{ duration: 2, ease: 'easeOut' }}
     >
-      <Suspense fallback={null}>
           <Canvas
             shadows
             camera={{ position: [5, 5, 5], fov: 35 }}
@@ -71,11 +68,8 @@ const CanvasScene = React.memo(() => {
 
             {/* Управление камерой */}
             <OrbitControls
-              // autoRotate
-              // autoRotateSpeed={0.6}
               enablePan={false}
               enableZoom={false}
-              // ref={orbitRef}
             />
 
             {/* Postprocessing */}
@@ -83,7 +77,6 @@ const CanvasScene = React.memo(() => {
               <Bloom intensity={0.2} luminanceThreshold={0.6} luminanceSmoothing={0.2} />
             </EffectComposer>
           </Canvas>
-        </Suspense>
       </motion.div>
     </>
   )

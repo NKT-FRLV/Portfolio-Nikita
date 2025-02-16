@@ -127,6 +127,7 @@ function App() {
         {/* Прогресс-бар */}
         <motion.div
           className="progress"
+          initial={{ scaleX: 0 }}
           animate={{ scaleX: progress }}
           transition={{ duration: 1, ease: 'easeInOut' }}
         />
