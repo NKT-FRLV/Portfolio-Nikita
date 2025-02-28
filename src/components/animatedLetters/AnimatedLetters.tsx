@@ -7,7 +7,7 @@ interface AnimatedLettersProps {
 const AnimatedLetters = ({ letterClass, strArray, idx }: AnimatedLettersProps) => {
   const isHoverClass = letterClass.includes('Hover');
   return (
-    <span>
+    <span style={{ whiteSpace: 'nowrap' }}>
       {strArray.map((char, i) => (
         <span
           key={`${char}-${i}`}

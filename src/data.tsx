@@ -8,6 +8,7 @@ import stellarBurgersImage from './assets/stellar-burgers.png'
 import closingTagImage from './assets/closing-tag-screen.png'
 import blogCustomizerImage from './assets/blog-customizer.png'
 import ticTacToeImage from './assets/gameAI.png'
+import GHUserAnalyzerImage from './assets/GH-User-Analyzer.png'
 
 const gitHubRepoUrl = 'https://github.com/NKT-FRLV';
 
@@ -89,6 +90,14 @@ export const projects: {
 
 }[] = [
   {
+    title: 'AI User Analyzer',
+    image: GHUserAnalyzerImage,
+    description: 'Is a tool for exploring GitHub profiles and analyzing their tech stack. It integrates AI for in-depth repository evaluation, offering customizable file and project analysis. Users can preview analyzed files instantly and receive professional AI feedback in any language—even Elvish. Voice responses are also available with access from the creator, NKT.FRLV. 🚀',
+    tecnologies: ['Next.js', 'TypeScript', 'OpenAI-API', 'AI-Integration', 'Github-API', 'MUI'],
+    urlGitHub: `${gitHubRepoUrl}/GitHub-User-Analyzer`,
+    urlDemo: 'https://git-hub-user-analyzer.vercel.app/',
+  },
+  {
     title: 'Mesto',
     image: mestoImage,
     description: 'Simple and pure JavaScript project, that allows you to save your favorite foto, using API to shere cards with your friends.',
@@ -121,7 +130,7 @@ export const projects: {
     urlDemo: 'https://blog-customizer-puce.vercel.app/',
   },
   {
-    title: 'tic-tac-toe game',
+    title: 'Tic-tac-toe Game',
     image: ticTacToeImage,
     description: 'Game with 3 modes: "Standart" - represents normal tic-tac-toe game, "Half"- represents the same game but with my own rules. And last but not least "AI" - represents tic-tac-toe game with artificial intelligence.',
     tecnologies: ['React.js', 'TypeScript', 'Vite', 'OpenAI-API', 'AI-Integration'],

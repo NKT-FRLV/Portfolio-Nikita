@@ -27,7 +27,7 @@ const Home = ({ moveToSection }: HomeProps) => {
   const hi = "Hi,".split('');
   const nameArray = "I'm <Nikita>".split('');
   const frontend = "Frontend Developer".split('');
-  const fullText = "React | Web | UI Design".split('');
+  const fullText = "React | AI UX | Motion".split('');
 
   return (
     <Section>

@@ -55,7 +55,7 @@
   
   .projectImage {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     object-position: center;
     border-radius: 8px; 
@@ -65,7 +65,7 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
   }
   
   .projectTitle {
@@ -78,40 +78,46 @@
   }
   
   .projectDescription {
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
     font-family: 'Roboto', 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    color: #ffffffb6; /* Лёгкий серый цвет */
+    color: #ffffffb6;
   }
 
   .tecnologies {
     display: flex;
-    flex-wrap: wrap; /* Перенос тегов на новую строку, если не хватает места */
-    gap: 0.5rem; /* Расстояние между тегами */
-    margin-top: 1rem; /* Отступ от описания */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
     padding: 0;
-    list-style: none; /* Убираем маркеры списка */
+    list-style: none;
   }
   
   .projectTag {
     flex:1;
     text-align: center;
-    padding: 0.4rem 0.8rem; /* Внутренний отступ для размера тегов */
-    border-radius: 8px; /* Скругленные углы */
-    background-color: rgba(0, 255, 127, 0.1); /* Полупрозрачный фон с акцентным цветом */
-    color: #00ff7f; /* Цвет текста тега */
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 127, 0.1);
+    color: #00ff7f;
     font-family: 'Roboto', 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.7); /* Тень текста */
-    white-space: nowrap; /* Отключаем перенос текста внутри тега */
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
   }
   
   .projectLinks {
-    margin-top: 1rem; /* Отступ от текста */
+    margin-top: 1rem;
     display: flex;
-    justify-content: space-between; /* Разделение ссылок */
-    gap: 1rem; /* Расстояние между ссылками */
+    justify-content: space-between;
+    gap: 1rem;
   }
   
   .projectLinks a {
@@ -123,14 +129,14 @@
     font-family: 'Roboto', 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: #00ff7f; /* Цвет ссылок */
+    color: #00ff7f;
     text-decoration: none;
     transition: color 0.3s ease, background-color 0.3s ease;
   }
   
   .projectLinks a:hover {
     background-color: rgba(200, 137, 230, 0.637);
-    color: #ffffff; /* Белый цвет при наведении */
+    color: #ffffff;
   }
   
   .arrow {
@@ -140,8 +146,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 60px;
-    height: 100px; */
     transform: translateY(-50%);
     cursor: pointer;
     background-color: rgba(0, 95, 47, 0.05);

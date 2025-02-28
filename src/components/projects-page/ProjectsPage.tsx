@@ -9,6 +9,7 @@ import styles from './projects.module.css'
 import { projects } from '../../data'
 import { useWindowSize } from '../../hooks';
 import clsx from 'clsx';
+import { Tooltip, Zoom } from '@mui/material';
 
 const variants = {
     enter: (direction: number) => ({
@@ -79,14 +80,23 @@ const ProjectsPage = () => {
                         >
                             <div className={styles.projectImageContainer}>
                                 <img
-                                src={projects[projectIndex].image}
-                                alt={projects[projectIndex].title}
-                                className={styles.projectImage}
+                                    src={projects[projectIndex].image}
+                                    alt={projects[projectIndex].title}
+                                    className={styles.projectImage}
                                 />
                             </div>
                             <div className={styles.projectInfo}>
                                 <h3 className={styles.projectTitle}>{projects[projectIndex].title}</h3>
-                                <p className={styles.projectDescription}>{projects[projectIndex].description}</p>
+                                <Tooltip
+                                    title={projects[projectIndex].description}
+                                    arrow
+                                    placement="right"
+                                    slots={{
+                                        transition: Zoom,
+                                      }}
+                                >
+                                    <p className={styles.projectDescription}>{projects[projectIndex].description}</p>
+                                </Tooltip>
                                 <ul className={styles.tecnologies}>
                                 {projects[projectIndex].tecnologies.map((tag, idx) => (
                                     <li key={idx} className={styles.projectTag}>
