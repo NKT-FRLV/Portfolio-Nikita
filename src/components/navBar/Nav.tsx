@@ -35,7 +35,7 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
     
     <nav className={styles.sidebar}>
       <div className={styles.logoContainer}>
-        <a href="#" >
+        <a href="#" className={styles.logoLink} onClick={() => moveToSection('home')}>
           <LogoSVG />
         </a>
       </div>
@@ -48,7 +48,7 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
       <div className={styles.menu}>
         <a className={styles.link} href="#" onClick={() => moveToSection('home')}>
           <span className={styles.linkIcon}>
-            <IoHome size={iconSize} color={activeSection === 0 ? '#00ff7f' : 'inherit'}/>
+            <IoHome size={iconSize} color={activeSection === 0 ? '#ffffff' : 'inherit'}/>
           </span>
           <span className={styles.linkText}>
             Home
@@ -56,7 +56,7 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
         </a>
         <a className={styles.link} href="#" onClick={() => moveToSection('about')}>
           <span className={styles.linkIcon}>
-            <IoPerson size={iconSize} color={activeSection === 1 ? '#00ff7f' : 'inherit'} />
+            <IoPerson size={iconSize} color={activeSection === 1 ? '#ffffff' : 'inherit'} />
           </span>
           <span className={styles.linkText}>
             About
@@ -64,7 +64,7 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
         </a>
         <a className={styles.link} href="#" onClick={() => moveToSection('projects')}>
           <span className={styles.linkIcon}>
-            <IoBriefcase size={iconSize} color={activeSection === 2 ? '#00ff7f' : 'inherit'}/>
+            <IoBriefcase size={iconSize} color={activeSection === 2 ? '#ffffff' : 'inherit'}/>
           </span>
           <span className={styles.linkText}>
             Projects
@@ -72,7 +72,7 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
         </a>
         <a className={styles.link} href="#" onClick={() => moveToSection('contact')}>
           <span className={styles.linkIcon}>
-            <IoMail size={iconSize} color={activeSection === 3 ? '#00ff7f' : 'inherit'}/>
+            <IoMail size={iconSize} color={activeSection === 3 ? '#ffffff' : 'inherit'}/>
           </span>
           <span className={styles.linkText}>
             Contact

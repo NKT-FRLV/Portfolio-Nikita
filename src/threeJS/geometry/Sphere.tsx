@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { a, SpringValue } from '@react-spring/three';
 import { Mesh } from 'three';
 

@@ -1,37 +1,28 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import { useState, useCallback, useRef, lazy, Suspense } from 'react';
 import { SectionContext } from './SectionContext';
 import ReactFullpage, { fullpageApi, Item } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
-// import CanvasScene from './threeJS/canvas/CanvasScene'
 import Nav from './components/navBar/Nav';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import ContactSection from './components/contactSection/ContactSection';
 import ProjectsPage from './components/projects-page/ProjectsPage';
+// import CanvasScene from './threeJS/canvas/CanvasScene';
 import './App.css';
 
-const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'));
 
 type FuncSectionChenger = ( _: Item, destination: Item ) => void
 type SectionIndex = 0 | 1 | 2 | 3
 
 
 function App() {
-  // const [hendleFullpage, setHendleFullpage] = useState<fullpageApi | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState<SectionIndex>(0); // Индекс текущей секции
   const [showCanvas, setShowCanvas] = useState<boolean>(false);
   const [allowDisplay, setAllowDisplay] = useState<boolean>(false);
   const threeRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      import('./threeJS/canvas/CanvasScene').then(() => {
-        setShowCanvas(true); // Устанавливаем тему после загрузки компонента
-        setAllowDisplay(true);
-      });
-    }, 4500);
-    return () => clearTimeout(timer);
-  }, []);
+  // Состояние для отслеживания загрузки компонента
+  // CanvasComponent изначально null, чтобы не загружать канвас при загрузке страницы
+  const [CanvasComponent, setCanvasComponent] = useState<React.LazyExoticComponent<React.ComponentType<object>> | null>(null);
 
   const anchors = ['home', 'about', 'projects', 'contact']; // Якоря секций
 
@@ -47,11 +38,16 @@ function App() {
     if (!showCanvas) {
       setAllowDisplay(true); // Включаем `display: block` сразу при включении
       setShowCanvas(true);
+      // Если компонент еще не загружен, загружаем его только при первом включении Switch
+      if (!CanvasComponent) {
+        const CanvasScene = lazy(() => import('./threeJS/canvas/CanvasScene'));
+        setCanvasComponent(CanvasScene);
+      }
     } else {
       setShowCanvas(false);
       setTimeout(() => setAllowDisplay(false), 600); // Убираем `display: none` после анимации
     }
-  }, [showCanvas]);
+  }, [showCanvas, CanvasComponent]);
 
   // Рассчитываем прогресс как процент
   const progress = currentSectionIndex / (anchors.length - 1);
@@ -62,12 +58,18 @@ function App() {
   
   const handleMoveToSection = useCallback((section: string) => fullpageApiRef.current?.moveTo(section), [fullpageApiRef]);
   
-
-
-
   return (
     <>
-      {/* через портал рендерится в threeJS div */}
+      {/* Градиентный фон */}
+      <div className="gradient-background">
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+      </div>
+
+      {/* Canvas, который можно включить по желанию */}
       <motion.div
         id="threejs"
         ref={threeRef}
@@ -80,9 +82,11 @@ function App() {
         }}
       >
         <SectionContext.Provider value={currentSectionIndex}>
-          <Suspense fallback={null}>
-            <CanvasScene />
-          </Suspense>
+          {showCanvas && CanvasComponent && (
+            <Suspense fallback={null}>
+              <CanvasComponent />
+            </Suspense>
+          )}
         </SectionContext.Provider>
       </motion.div>
 

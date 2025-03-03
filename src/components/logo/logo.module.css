@@ -5,17 +5,28 @@
   align-items: center;
   width: 100%;
   height: auto;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
   /* background: radial-gradient(circle at center, #121212, #000000, #121212); */
   /* overflow: hidden; */
-  /* border-radius: 16px; */
 }
 
+.container:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
 
 .logo {
   position: relative;
   width: 90%;
   height: auto;
   z-index: 1;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
 .logo:focus {
@@ -24,4 +35,26 @@
 
 .logo:focus-visible {
   outline: 1px solid #fff;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0.3rem;
+  }
+  
+  .logo {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .container {
+    padding: 0.2rem;
+  }
+  
+  .logo {
+    width: 80%;
+  }
 }

@@ -9,28 +9,38 @@
     width: 100px;
     height: 100dvh;
     padding: 0.5rem 0;
-    background-color: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(2px);
-    box-shadow: 0 0.5rem 0.8rem rgba(0,0,0,0.5);
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
     /* color: #fff; */
 }
 
 .logoContainer {
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
 }
 
 .logoLink {
-    width: 80px;
-    height: 80px;
-    /* opacity: 0.5; */
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    transition: all 0.3s ease;
+    border-radius: 8px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    filter: drop-shadow(0 0 15px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
+}
+
+.logoLink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logoLink:active {
+    transform: translateY(1px);
 }
 
 .switchWrapper {
@@ -63,30 +73,16 @@
     width: 100%;
     font-size: 1.2rem;
     padding: 0.5rem;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+    color: #aaaaaa;
+    /* background-clip: text; */
+    /* -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: radial-gradient(circle, #00ff7f, #646cff, #00ff7f, #646cff, #00ff7f);
-    background-size: 250% 250%; /* Увеличиваем размер градиента для движения */
+    background-image: linear-gradient(to right, #ffffff, #aaaaaa, #ffffff); */
+    /* background-size: 250% 250%; */
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid #00ff8093;
-    border-top: 1px solid #00ff8093;
-    animation: rotateGradient 5s ease-in-out infinite;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
-@keyframes rotateGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 
 .sotialsToolBar {
     display: flex;
@@ -100,24 +96,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #00ff7f;
+    color: #ffffff;
     font-size: 1rem;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
 
 .sotialsBarToogler:hover {
-    color:#ff3300c8;
+    color: #aaaaaa;
 }
 
 .sotials {
-
     min-height: 67px; 
     padding-top: 1rem;
     padding-bottom: 1rem;
-    
-    background-color: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(2px);
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(5px);
     border-radius: 0 8px 8px 0;
     overflow: hidden;
     /* transition: transform 0.3s ease-in-out; */
@@ -131,7 +125,7 @@
 
 .sotials a {
     display: block;
-    color: antiquewhite;
+    color: #ffffff;
 }
 
 .link {
@@ -144,10 +138,8 @@
     padding: 2.5rem 0; */
 }
 
-
-
 .linkIcon {
-    opacity: 0.5;
+    opacity: 0.7;
     transition: opacity 0.3s;
 }
 
@@ -161,7 +153,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
-    color: #00ff7f;
+    color: #ffffff;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -188,21 +180,15 @@
     }
 
     .logoLink {
-        margin-top: 10px;
-        width: 60px;
-        height: 60px;
-        filter: drop-shadow(0 0 10px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
+        max-width: 100px;
     }
     .resumeLink {
-
         font-size: 1rem;
     }
   }
   
 
 @media screen and (max-width: 768px) {
-    
-
     .menu {
         gap: 0;
     }
@@ -212,12 +198,10 @@
         justify-content: center;
         align-items: center;
         width: 95%;
-        background-color: rgba(0, 0, 0, 0.362);
+        background-color: rgba(25, 25, 25, 0.9);
         padding: 4rem 0;
-        border:rgba(0, 0, 0, 0.362) 1px solid;
-
+        border: rgba(50, 50, 50, 0.5) 1px solid;
     }
-    
 }
 
 @media screen and (max-width: 550px) {
@@ -236,8 +220,6 @@
 
 
 @media screen and (max-width: 440px) {
-
-
     .sidebar {
         width: 50px; 
     }
@@ -251,15 +233,12 @@
     }
 
     .logoLink {
-        width: 45px;
-        height: 45px;
-        filter: drop-shadow(0 0 8px rgba(225, 221, 0, 0.5)) hue-rotate(54deg);
+        max-width: 80px;
     }
 
     .link {
         font-size: 1.8rem;
         padding: 5rem 0;
-
     }
 
     .resume {
@@ -268,14 +247,12 @@
     }
 
     .resumeLink {
-
         font-size: 1.8rem;
     }
 
     .sotialsBarToogler {
         gap: 0.5rem;
         font-size: 1.8rem;
-        
     }
 
     .sotials {
