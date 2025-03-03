@@ -8,14 +8,61 @@
 }
 
 :root {
+  /* Основные цвета */
+  --color-text-primary: rgba(255, 255, 255, 0.87);
+  --color-link-default: #646cff;
+  --color-link-hover: #535bf2;
+  --color-button-border: #00ff7f;
+  --color-button-text: #00ff7f;
+  --color-button-hover-bg: #00ff7f;
+  --color-button-hover-text: black;
+  
+  /* Цвета для основного градиента */
+  --gradient-color-1: #111111;
+  --gradient-color-2: #1a1a2e;
+  --gradient-color-3: #121212;
+  
+  /* Альтернативные цвета для градиента (закомментированные) */
+  --gradient-alt-color-1: #0f1f17;
+  --gradient-alt-color-2: #0d1b14;
+  
+  /* Цвета для альтернативного градиента (закомментированного) */
+  --gradient-alt2-color-1: #0a0a0a;
+  --gradient-alt2-color-2: #1a1a2e;
+  --gradient-alt2-color-3: #16213e;
+  
+  /* Цвета для светлой темы (закомментированные) */
+  --light-color-text: #213547;
+  --light-color-bg: #ffffff;
+  --light-color-link-hover: #747bff;
+  --light-color-button-bg: #f9f9f9;
+  
+  /* Настройки градиента */
+  --gradient-angle: 135deg;
+  --gradient-animation-duration: 15s;
+  --gradient-alt-animation-duration: 8s;
+  
+  /* Основные настройки шрифта */
   font-family: 'Roboto', 'Inter', Arial, 'Press Start 2P', 'Doto', 'Rubik Glitch', 'Fuzzy Bubbles', system-ui, 'Avenir', Helvetica,  sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
 
   /* color-scheme: light dark; */
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #001223;
+  color: var(--color-text-primary);
+
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--gradient-color-1) 0%,
+    var(--gradient-color-2) 25%,
+    /* var(--gradient-alt-color-1) 25%, */
+    var(--gradient-color-3) 50%,
+    var(--gradient-color-2) 75%,
+    /* var(--gradient-alt-color-2) 75%, */
+    var(--gradient-color-1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientAnimation var(--gradient-animation-duration) ease infinite;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,13 +71,20 @@
   height: 100dvh;
 }
 
+/* Анимация градиента */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-link-default);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-link-hover);
 }
 
 body {
@@ -53,8 +107,8 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid #00ff7f;
-  color: #00ff7f;
+  border: 1px solid var(--color-button-border);
+  color: var(--color-button-text);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -64,8 +118,8 @@ button {
   transition: background-color 0.25s, color 0.25s, transform 0.25s;
 }
 button:hover {
-  background-color: #00ff7f;
-  color: black;
+  background-color: var(--color-button-hover-bg);
+  color: var(--color-button-hover-text);
   transform: scale(1.1) translateY(-2px);
 }
 
@@ -103,6 +157,7 @@ button:focus-visible {
 @media screen and (max-width: 550px) {
   :root {
     font-size: 6px;
+
   }
 
   button {
@@ -124,17 +179,16 @@ button:focus-visible {
   }
 }
 
-
-
+/* Стили для светлой темы (закомментированы) */
 /* @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--light-color-text);
+    background-color: var(--light-color-bg);
   }
   a:hover {
-    color: #747bff;
+    color: var(--light-color-link-hover);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--light-color-button-bg);
   }
 } */

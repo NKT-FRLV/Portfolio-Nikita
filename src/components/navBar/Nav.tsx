@@ -46,33 +46,33 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
         />
       </div>
       <div className={styles.menu}>
-        <a className={styles.link} href="#" onClick={() => moveToSection('home')}>
+        <a className={`${styles.link} ${activeSection === 0 ? styles.active : ''}`} href="#" onClick={() => moveToSection('home')}>
           <span className={styles.linkIcon}>
-            <IoHome size={iconSize} color={activeSection === 0 ? '#ffffff' : 'inherit'}/>
+            <IoHome size={iconSize} />
           </span>
           <span className={styles.linkText}>
             Home
           </span>
         </a>
-        <a className={styles.link} href="#" onClick={() => moveToSection('about')}>
+        <a className={`${styles.link} ${activeSection === 1 ? styles.active : ''}`} href="#" onClick={() => moveToSection('about')}>
           <span className={styles.linkIcon}>
-            <IoPerson size={iconSize} color={activeSection === 1 ? '#ffffff' : 'inherit'} />
+            <IoPerson size={iconSize} />
           </span>
           <span className={styles.linkText}>
             About
           </span>
         </a>
-        <a className={styles.link} href="#" onClick={() => moveToSection('projects')}>
+        <a className={`${styles.link} ${activeSection === 2 ? styles.active : ''}`} href="#" onClick={() => moveToSection('projects')}>
           <span className={styles.linkIcon}>
-            <IoBriefcase size={iconSize} color={activeSection === 2 ? '#ffffff' : 'inherit'}/>
+            <IoBriefcase size={iconSize} />
           </span>
           <span className={styles.linkText}>
             Projects
           </span>
         </a>
-        <a className={styles.link} href="#" onClick={() => moveToSection('contact')}>
+        <a className={`${styles.link} ${activeSection === 3 ? styles.active : ''}`} href="#" onClick={() => moveToSection('contact')}>
           <span className={styles.linkIcon}>
-            <IoMail size={iconSize} color={activeSection === 3 ? '#ffffff' : 'inherit'}/>
+            <IoMail size={iconSize} />
           </span>
           <span className={styles.linkText}>
             Contact

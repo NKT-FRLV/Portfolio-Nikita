@@ -60,8 +60,8 @@ function App() {
   
   return (
     <>
-      {/* Градиентный фон */}
-      <div className="gradient-background">
+      {/* Частицы для фона */}
+      <div className="background-particles">
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>

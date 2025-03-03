@@ -73,7 +73,8 @@
     width: 100%;
     font-size: 1.2rem;
     padding: 0.5rem;
-    color: #aaaaaa;
+    /* color: #aaaaaa; */
+    color: #9370DB;
     /* background-clip: text; */
     /* -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -82,7 +83,13 @@
     margin-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color 0.3s ease-in-out;
 }
+
+.resumeLink:hover {
+    color: #00ff7f;
+}
+
 
 .sotialsToolBar {
     display: flex;
@@ -96,14 +103,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
+    color: #aaaaaa;
+    /* color: #9370DB; */
     font-size: 1rem;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
 
 .sotialsBarToogler:hover {
-    color: #aaaaaa;
+    color: #00ff7f;
 }
 
 .sotials {
@@ -145,6 +153,47 @@
 
 .linkIcon svg {
     transition: color 0.3s ease-in-out;
+    color: #9370DB; /* Фиолетовый цвет для неактивных иконок */
+}
+
+/* Стили для активных иконок */
+.link:nth-child(1) .linkIcon svg {
+    color: #9370DB;
+}
+.link:nth-child(2) .linkIcon svg {
+    color: #9370DB;
+}
+.link:nth-child(3) .linkIcon svg {
+    color: #9370DB;
+}
+.link:nth-child(4) .linkIcon svg {
+    color: #9370DB;
+}
+
+/* Активные иконки */
+.link:nth-child(1).active .linkIcon svg,
+.link:nth-child(1):active .linkIcon svg,
+.link:nth-child(1):focus .linkIcon svg,
+.link:nth-child(1):hover .linkIcon svg {
+    color: #00ff7f;
+}
+.link:nth-child(2).active .linkIcon svg,
+.link:nth-child(2):active .linkIcon svg,
+.link:nth-child(2):focus .linkIcon svg,
+.link:nth-child(2):hover .linkIcon svg {
+    color: #00ff7f;
+}
+.link:nth-child(3).active .linkIcon svg,
+.link:nth-child(3):active .linkIcon svg,
+.link:nth-child(3):focus .linkIcon svg,
+.link:nth-child(3):hover .linkIcon svg {
+    color: #00ff7f;
+}
+.link:nth-child(4).active .linkIcon svg,
+.link:nth-child(4):active .linkIcon svg,
+.link:nth-child(4):focus .linkIcon svg,
+.link:nth-child(4):hover .linkIcon svg {
+    color: #00ff7f;
 }
 
 .linkText {
@@ -185,7 +234,7 @@
     .resumeLink {
         font-size: 1rem;
     }
-  }
+}
   
 
 @media screen and (max-width: 768px) {
@@ -217,7 +266,6 @@
         font-size: 2rem;
     }
 }
-
 
 @media screen and (max-width: 440px) {
     .sidebar {
@@ -258,6 +306,18 @@
     .sotials {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
+    }
+}
+
+@keyframes pulseAnimation {
+    0% {
+        box-shadow: 0 0 12px rgba(0, 255, 127, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 127, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 12px rgba(0, 255, 127, 0.4);
     }
 }
 

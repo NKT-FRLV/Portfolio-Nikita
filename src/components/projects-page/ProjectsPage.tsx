@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useAnimatedLetters } from '../animatedLetters/hook'
 import { IoChevronForward , IoChevronBack } from 'react-icons/io5';
+import { FaGithub } from 'react-icons/fa';
+import { BiLinkExternal } from 'react-icons/bi';
 import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from "popmotion";
 import AnimatedLetters from '../animatedLetters/AnimatedLetters'
@@ -38,10 +40,11 @@ const ProjectsPage = () => {
 
     // Определяем размер иконок в зависимости от ширины экрана.
     const { width } = useWindowSize();
-    const arrowWidth = width > 768 ? 60 : 35;
-    const arrowHeight = width > 768 ? 100 : 55;
+    const arrowWidth = width > 768 ? 60 : width > 440 ? 40 : 30;
+    const arrowHeight = width > 768 ? 100 : width > 440 ? 65 : 45;
+    const iconSize = width > 768 ? 18 : 16;
 
-    // Управление пагинацией карточек.
+    // Управление пагинацией карточек.
     const [[page, direction], setPage] = useState([0, 0]);
     const projectIndex = wrap(0, projects.length, page);
     const paginate = (newDirection: number) => {
@@ -105,19 +108,34 @@ const ProjectsPage = () => {
                                 ))}
                                 </ul>
                             </div>
-                            <div className={styles.projectLinks}>
-                                <a target="_blank" href={projects[projectIndex].urlGitHub}>
-                                GitHub
-                                </a>
-                                <a target="_blank" href={projects[projectIndex].urlDemo}>
-                                Demo
-                                </a>
+                            <div className={styles.projectFooter}>
+                                <div className={styles.projectCounter}>
+                                    {projectIndex + 1} / {projects.length}
+                                </div>
+                                <div className={styles.projectLinks}>
+                                    <a target="_blank" href={projects[projectIndex].urlGitHub} className={styles.projectLink}>
+                                        <FaGithub size={iconSize} />
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a target="_blank" href={projects[projectIndex].urlDemo} className={styles.projectLink}>
+                                        <BiLinkExternal size={iconSize} />
+                                        <span>Demo</span>
+                                    </a>
+                                </div>
                             </div>
                     </motion.div>
                 </AnimatePresence>
                 </motion.div>
                 
-                
+                <div className={styles.pagination}>
+                    {projects.map((_, i) => (
+                        <div 
+                            key={i} 
+                            className={clsx(styles.paginationDot, { [styles.active]: i === projectIndex })}
+                            onClick={() => setPage([i, i > projectIndex ? 1 : -1])}
+                        />
+                    ))}
+                </div>
             </div>
         </Section>
     )

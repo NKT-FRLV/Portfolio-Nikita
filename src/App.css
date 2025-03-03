@@ -15,19 +15,16 @@
   overflow: hidden;
 }
 
-.gradient-background {
+.background-particles {
   position: fixed;
   inset: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #111111 0%, #2c2c2c 50%, #111111 100%);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
   overflow: hidden;
 }
 
-.gradient-background::before {
+.background-particles::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -43,26 +40,26 @@
   z-index: 1;
 }
 
-.gradient-background::after {
+.background-particles::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
   z-index: 2;
 }
 
 /* Добавляем плавающие частицы */
-.gradient-background .particle {
+.background-particles .particle {
   position: absolute;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 50%;
   pointer-events: none;
 }
 
-.gradient-background .particle:nth-child(1) {
+.background-particles .particle:nth-child(1) {
   width: 80px;
   height: 80px;
   top: 10%;
@@ -70,7 +67,7 @@
   animation: float 20s infinite ease-in-out;
 }
 
-.gradient-background .particle:nth-child(2) {
+.background-particles .particle:nth-child(2) {
   width: 60px;
   height: 60px;
   top: 70%;
@@ -78,7 +75,7 @@
   animation: float 25s infinite ease-in-out reverse;
 }
 
-.gradient-background .particle:nth-child(3) {
+.background-particles .particle:nth-child(3) {
   width: 40px;
   height: 40px;
   top: 40%;
@@ -86,7 +83,7 @@
   animation: float 18s infinite ease-in-out 2s;
 }
 
-.gradient-background .particle:nth-child(4) {
+.background-particles .particle:nth-child(4) {
   width: 100px;
   height: 100px;
   top: 80%;
@@ -94,18 +91,12 @@
   animation: float 22s infinite ease-in-out 1s;
 }
 
-.gradient-background .particle:nth-child(5) {
+.background-particles .particle:nth-child(5) {
   width: 50px;
   height: 50px;
   top: 20%;
   left: 85%;
   animation: float 19s infinite ease-in-out 3s;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50% }
-  50% { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
 }
 
 @keyframes float {
@@ -227,6 +218,8 @@ body:not(.fp-responsive) .fp-overflow {
     width: calc(100% - 70px);
     margin-left: 70px;
   }
+
+  
 }
 
 @media screen and (max-width: 440px) {
