@@ -68,12 +68,12 @@
 }
 
 .text {
+  font-family: 'Roboto', 'Inter', sans-serif;
   font-size: 1.2rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
   text-align: left;
   margin: 0;
-  font-family: 'Roboto', 'Inter', sans-serif;
 }
 
 .accentText {

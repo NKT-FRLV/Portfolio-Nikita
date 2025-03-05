@@ -1,35 +1,6 @@
-@font-face {
-    font-family: 'Doto';
-    font-weight: 700; /* Bold */
-    src: url('/fonts/Doto-Bold.ttf') format('truetype');
-  }
-  
-@font-face {
-  font-family: 'Doto';
-  font-weight: 900; /* Black */
-  src: url('/fonts/Doto-Black.ttf') format('truetype');
-}
 
 @font-face {
   font-family: 'Press Start 2P';
   font-weight: 400; /* Regular */
   src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Rubik Glitch';
-  font-weight: 400; /* Regular */
-  src: url('/fonts/RubikGlitch-Regular.ttf') format('truetype');
-}
-  
-@font-face {
-  font-family: 'Fuzzy Bubbles';
-  font-weight: 400; /* Regular */
-  src: url('/fonts/FuzzyBubbles-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Fuzzy Bubbles';
-  font-weight: 700; /* Bold */
-  src: url('/fonts/FuzzyBubbles-Bold.ttf') format('truetype');
 }

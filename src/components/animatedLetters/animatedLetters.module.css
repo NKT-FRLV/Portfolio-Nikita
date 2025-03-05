@@ -11,6 +11,7 @@
   
   .textAnimateHover:hover {
     animation: none;
+    /* color: var(--light-color-link-hover) !important; */
     color: #ff4500 !important;
   }
   

@@ -54,7 +54,7 @@
   justify-content: start;
   gap: 1rem;
   list-style: none;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   padding: 0;
 }
 
@@ -128,14 +128,14 @@
   .skillsContainer, 
   .languagesContainer {
     gap: 1.5rem;
-    margin: 1.5rem 0;
+    /* margin: 1.5rem 0; */
   }
 }
 
 @media screen and (max-width: 550px) {
   .skillCard {
-    width: 60px;
-    height: 40px;
+    width: 50px;
+    height: 35px;
     border: 1.5px solid var(--color-card-border);
   }
   
@@ -151,8 +151,7 @@
   
   .skillsContainer, 
   .languagesContainer {
-    justify-content: center;
     gap: 2rem;
-    margin: 2rem 0 3rem;
+    /* margin: 2rem 0 3rem; */
   }
 } 

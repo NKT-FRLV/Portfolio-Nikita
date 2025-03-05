@@ -25,9 +25,10 @@
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: min(100%, 600px);
+  height: fit-content;
   padding: 1.5rem;
+  margin: auto 0;
   border-radius: 12px;
   background-color: rgba(17, 17, 17, 0.7);
   border: 1.5px solid var(--color-card-border);
@@ -172,7 +173,7 @@
 
 @media screen and (max-width: 915px) {
   .description {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
   
   .contentContainer {
@@ -181,32 +182,107 @@
 }
 
 @media screen and (max-width: 768px) {
+  .heading {
+    font-size: 1.6rem;
+  }
+
   .description {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
   
   .halfs {
     flex-direction: column;
-    gap: 1.2rem;
   }
-  
+
   .button {
     align-self: center;
     width: 100%;
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .contactForm {
+    gap: 1.5rem;
+  }
+
+  .contentContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .contactForm input[type='text'],
+  .contactForm input[type='email'],
+  .contactForm textarea {
+    padding: 0.9rem;
+    font-size: 15px;
+  }
+  
+  .description {
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .heading {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .description {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .halfs {
+    gap: 2.5rem;
+  }
+
+  .contactForm {
+    gap: 2.5rem;
+  }
+  
+  .contentContainer {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .contactForm input[type='text'],
+  .contactForm input[type='email'],
+  .contactForm textarea {
+    padding: 1.5rem;
+    font-size: 2rem;
+    height: auto;
+  }
+  
+  .contactForm input[type='text'],
+  .contactForm input[type='email'] {
+    height: 45px;
+  }
+  
+  .button {
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+    letter-spacing: 1.5px;
   }
 }
 
 @media screen and (max-width: 440px) {
   .container {
-    padding: 1.5rem 0.5rem;
+    padding: 2rem 1rem;
   }
   
   .contentContainer {
-    padding: 1rem;
+    padding: 2rem;
   }
   
   .description {
-    font-size: 0.95rem;
+    font-size: 1.8rem;
   }
   
   .contactForm input[type='text'],
@@ -217,7 +293,7 @@
   }
   
   .button {
-    font-size: 0.9rem;
+    font-size: 1.8rem;
     padding: 0.5em 1.2em;
   }
 }

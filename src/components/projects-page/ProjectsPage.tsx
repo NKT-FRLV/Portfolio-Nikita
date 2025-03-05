@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { useAnimatedLetters } from '../animatedLetters/hook'
 import { IoChevronForward , IoChevronBack } from 'react-icons/io5';
 import { FaGithub } from 'react-icons/fa';
 import { BiLinkExternal } from 'react-icons/bi';
 import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from "popmotion";
-import AnimatedLetters from '../animatedLetters/AnimatedLetters'
 import Section from '../section/Section'
 import styles from './projects.module.css'
 import { projects } from '../../data'
@@ -33,16 +31,11 @@ const variants = {
 
 const ProjectsPage = () => {
 
-    const { letterClass, animationContainerRef } = useAnimatedLetters({
-        threshold: 0.6,
-        animationDuration: 1700,
-      });
-
     // Определяем размер иконок в зависимости от ширины экрана.
     const { width } = useWindowSize();
-    const arrowWidth = width > 768 ? 60 : width > 440 ? 40 : 30;
-    const arrowHeight = width > 768 ? 100 : width > 440 ? 65 : 45;
-    const iconSize = width > 768 ? 18 : 16;
+    const arrowWidth = width > 768 ? 60 : width > 635 ? 45 : width > 550 ? 35 : 25;
+    const arrowHeight = width > 768 ? 100 : width > 635 ? 75 : width > 550 ? 55 : 40;
+    const iconSize = width > 768 ? 18 : width > 550 ? 17 : 16;
 
     // Управление пагинацией карточек.
     const [[page, direction], setPage] = useState([0, 0]);
@@ -52,13 +45,12 @@ const ProjectsPage = () => {
     };
 
 
-    const titleLetters = '<My Projects />'.split('');
 
     return (
-        <Section style={{justifyContent: 'start', alignItems: 'start'}}>
-            <div className={styles.container} ref={animationContainerRef}>
+        <Section style={{ width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+            <div className={styles.container}>
                 <h2 className={styles.heading}>
-                    <AnimatedLetters letterClass={letterClass} strArray={titleLetters} idx={1} />
+                    {"<My Projects />"}
                 </h2>
                 <div className={clsx(styles.arrow, styles.arrowStart)}>
                     <IoChevronBack style={{ width: arrowWidth, height: arrowHeight }} onClick={() => paginate(-1)} />

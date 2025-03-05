@@ -1,24 +1,15 @@
-import React, { useState, useRef, useCallback, useMemo } from 'react'
-import AnimatedLetters from '../animatedLetters/AnimatedLetters'
-import { useAnimatedLetters } from '../animatedLetters/hook'
+import React, { useState, useRef, useCallback } from 'react'
 import Section from '../section/Section'
 import styles from './contactSection.module.css'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ClipLoader from 'react-spinners/ClipLoader';
 import emailjs from '@emailjs/browser';
-// import { motion } from 'framer-motion'
 
 const ContactSection = () => {
     
     const form = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
-
-    const { letterClass, animationContainerRef } = useAnimatedLetters({
-      threshold: 0.6,
-      animationDuration: 1700,
-    });
-    const titleLetters = useMemo(() => '<Contact Me />'.split(''), []);
 
     const verifyEmail = useCallback(async (email: string) => {
       try {
@@ -99,14 +90,10 @@ const ContactSection = () => {
     }, [verifyEmail]);
 
     return (
-      <Section style={{width: '60vw', justifyContent: 'start', alignItems: 'start'}}>
-          <div className={styles.container} ref={animationContainerRef}>
+      <Section style={{width: '100%', justifyContent: 'start', alignItems: 'start'}}>
+          <div className={styles.container}>
               <h1 className={styles.heading}>
-                  <AnimatedLetters
-                    letterClass={letterClass}
-                    strArray={titleLetters}
-                    idx={1}
-                  />
+                  {"<Contact Me />"}
               </h1>
               <div className={styles.contentContainer}>
                 <p className={styles.description}>
