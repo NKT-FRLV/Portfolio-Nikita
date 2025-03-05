@@ -99,7 +99,7 @@ const ContactSection = () => {
     }, [verifyEmail]);
 
     return (
-      <Section>
+      <Section style={{width: '60vw', justifyContent: 'start', alignItems: 'start'}}>
           <div className={styles.container} ref={animationContainerRef}>
               <h1 className={styles.heading}>
                   <AnimatedLetters
@@ -134,7 +134,7 @@ const ContactSection = () => {
                     ></textarea>
                     <button
                       type="submit"
-                      // className={styles.flatButton}
+                      className={styles.button}
                       disabled={loading}
                     >
                       {loading ? <ClipLoader color="#fff" size={20} /> : 'SEND'}

@@ -1,32 +1,40 @@
 import { motion } from 'framer-motion'
-import clsx from 'clsx'
 import styles from './tab.module.css'
 
-// import '../../App.css'
+import '../../App.css'
 interface TabProps {
     title: string
     isActive: boolean
-    borderRadius?: string
     handleTabClick: () => void
 }
 
-const Tab = ({title, isActive, borderRadius, handleTabClick}: TabProps) => {
-
+const Tab = ({title, isActive, handleTabClick}: TabProps) => {
   return (
-    <>
     <motion.div 
-        className={clsx(styles.tab, {[styles.tabActive]: isActive})}
-        onClick={handleTabClick}
-        style={{borderRadius: borderRadius}}
-        >
-        <motion.p>{title}</motion.p>
-        {isActive ? (
-            <motion.div className={styles.underline} layoutId="underline" />
-            ) : null
+      className={styles.tab}
+      onClick={handleTabClick}
+      animate={{
+        color: isActive ? 'var(--color-button-text)' : '#aaa'
+      }}
+      whileHover={{
+        color: 'var(--light-color-link-hover)',
+        transition: {
+          duration: 0.3,
+          ease: 'easeInOut'
         }
-    </motion.div>
+      }}
+    >
+      <motion.p>
+        {title}
+      </motion.p>
 
-    </>
+      {isActive && (
+        <motion.div 
+          className={styles.underline} 
+          layoutId="underline"
+        />
+      )}
+    </motion.div>
   )
 }
 

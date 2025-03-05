@@ -1,0 +1,198 @@
+.tabContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: rgba(17, 17, 17, 0.7);
+  border: 1.5px solid var(--color-card-border);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.tabContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 127, 0.05) 0%,
+    transparent 50%,
+    rgba(0, 255, 127, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.textTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-button-text);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.educationList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 500px;
+  overflow: hidden;
+  padding-right: 0.5rem;
+}
+
+.educationCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--color-card-border);
+  background-color: rgba(0, 255, 127, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.educationHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.educationTitleWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.educationTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-button-text);
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.educationLogo {
+  color: var(--color-button-text);
+  opacity: 0.8;
+}
+
+.educationDate {
+  font-family: 'Roboto', 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: end;
+}
+
+.educationProfession {
+  font-family: 'Roboto', 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-button-text);
+  margin-bottom: 0.5rem;
+}
+
+.educationContent {
+  font-family: 'Roboto', 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.educationBottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+}
+
+.educationDownload {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 915px) {
+  .tabContent {
+    padding: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textTitle {
+    font-size: 2.2rem;
+  }
+  
+  .educationTitle {
+    font-size: 1.2rem;
+  }
+  
+  .educationProfession {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .educationList {
+    gap: 1.8rem;
+  }
+  
+  .educationCard {
+    padding: 1.2rem;
+  }
+  
+  .educationContent {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .tabContent {
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  .textTitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .educationList {
+    gap: 1.8rem;
+  }
+  
+  .educationCard {
+    padding: 1.8rem;
+  }
+  
+  .educationTitle {
+    font-size: 1.3rem;
+  }
+  
+  .educationProfession {
+    font-size: 1.5rem;
+  }
+  
+  .educationContent {
+    font-size: 1.8rem;
+  }
+  
+  .educationDate {
+    font-size: 1.8rem;
+  }
+} 

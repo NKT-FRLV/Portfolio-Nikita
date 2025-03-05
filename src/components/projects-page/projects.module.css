@@ -39,7 +39,7 @@
     padding: 1.5rem;
     border-radius: 12px;
     background-color: rgba(17, 17, 17, 0.7);
-    border: 1.5px solid var(--color-button-text);
+    border: 1.5px solid var(--color-card-border);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);
     color: #fff;

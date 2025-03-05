@@ -153,48 +153,22 @@
 
 .linkIcon svg {
     transition: color 0.3s ease-in-out;
-    color: #9370DB; /* Фиолетовый цвет для неактивных иконок */
+    color: #aaaaaa;
 }
 
 /* Стили для активных иконок */
-.link:nth-child(1) .linkIcon svg {
-    color: #9370DB;
-}
-.link:nth-child(2) .linkIcon svg {
-    color: #9370DB;
-}
-.link:nth-child(3) .linkIcon svg {
-    color: #9370DB;
-}
-.link:nth-child(4) .linkIcon svg {
-    color: #9370DB;
+.link .linkIcon svg {
+    color: #aaaaaa;
 }
 
 /* Активные иконки */
-.link:nth-child(1).active .linkIcon svg,
-.link:nth-child(1):active .linkIcon svg,
-.link:nth-child(1):focus .linkIcon svg,
-.link:nth-child(1):hover .linkIcon svg {
-    color: #00ff7f;
+.link.active .linkIcon svg,
+.link:active .linkIcon svg,
+.link:focus .linkIcon svg,
+.link:hover .linkIcon svg {
+    color: #9370DB;
 }
-.link:nth-child(2).active .linkIcon svg,
-.link:nth-child(2):active .linkIcon svg,
-.link:nth-child(2):focus .linkIcon svg,
-.link:nth-child(2):hover .linkIcon svg {
-    color: #00ff7f;
-}
-.link:nth-child(3).active .linkIcon svg,
-.link:nth-child(3):active .linkIcon svg,
-.link:nth-child(3):focus .linkIcon svg,
-.link:nth-child(3):hover .linkIcon svg {
-    color: #00ff7f;
-}
-.link:nth-child(4).active .linkIcon svg,
-.link:nth-child(4):active .linkIcon svg,
-.link:nth-child(4):focus .linkIcon svg,
-.link:nth-child(4):hover .linkIcon svg {
-    color: #00ff7f;
-}
+
 
 .linkText {
     position: absolute;

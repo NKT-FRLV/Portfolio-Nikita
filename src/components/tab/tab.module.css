@@ -1,61 +1,46 @@
 .tab {
     display: flex;
     justify-content: center;
-    /* font-family: 'Doto', sans-serif; */
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 120px;
     cursor: pointer;
-    color: rgba(184, 186, 220, 0.5);
-    background-color: rgba(48, 48, 48, 0.5);
-    box-shadow: 0 6px 6px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.19), 2px 2px 2px rgba(0, 0, 0, 0.23);
-    /* border-radius: 10px 10px 0 0; */
-    padding: 5px;
+    padding: 10px 15px;
     position: relative;
-    transition: background-color 500ms, color 500ms;
     user-select: none;
-}
-
-.tabActive {
-    background-color: #1a1a1a;
-    color: #646cff;
-    position: relative;
-
+    white-space: nowrap;
+    /* backdrop-filter: blur(5px); */
 }
 
 .underline {
     position: absolute;
-    bottom: -1px;
-    left: 10px;
-    right: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 1px;
-    border-radius: 45px;
-    background: #8855ff;
+    background: var(--color-button-text);
+    box-shadow: 0 0 8px var(--color-button-text);
 }
-
 
 @media screen and (max-width: 1050px) {
     .tab {
-        width: 90px;
+        width: 100px;
+        padding: 15px 12px;
     }
 }
-  
-  
+
 @media screen and (max-width: 768px) {
-
     .tab {
+        font-size: 1.5rem;
         width: 80px;
-        font-size: 1.3rem;
+        padding: 15px 12px;
     }
-
 }
-  
-@media screen and (max-width: 440px) {
 
+@media screen and (max-width: 550px) {
     .tab {
         width: 60px;
-        font-size: 1.6rem;
+        font-size: 2rem;
+        padding: 10px 12px;
     }
-
 }

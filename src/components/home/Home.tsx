@@ -30,7 +30,7 @@ const Home = ({ moveToSection }: HomeProps) => {
   const fullText = "React | AI UX | Motion".split('');
 
   return (
-    <Section>
+    <Section style={{width: '60vw'}}>
     <div className={styles.container}>
         <div className={styles.heading}>
             <h1>

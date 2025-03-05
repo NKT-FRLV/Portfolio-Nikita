@@ -33,9 +33,10 @@ export const skills: { name: string; percent: number; icon: React.ElementType }[
 ];
 
 export const languages: { name: string; percent: number; icon: JSX.Element }[] = [
-  { name: 'Russian', percent: 95, icon: <Flags code="RU" style={{ width: '100%'}}/> },
-  { name: 'English', percent: 90, icon: <Flags code="GB" style={{ height: '100%'}} /> },
-  { name: 'Spanish', percent: 70, icon: <Flags code="ES" style={{ width: '100%'}} /> }
+  { name: 'Russian', percent: 95, icon: <Flags code="RU" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/> },
+  { name: 'English', percent: 90, icon: <Flags code="GB" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> },
+  { name: 'Spanish', percent: 70, icon: <Flags code="ES" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> },
+  { name: 'Swedish', percent: 50, icon: <Flags code="SE" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> }
 ];
 
 export const myEducation: {
@@ -51,7 +52,7 @@ export const myEducation: {
   { 
     title: 'Yandex.Praktikum', 
     profesion: 'Frontend-developer', 
-    date: '1.10.2023 - 24.11.2024',
+    date: '2023',
     content: 'A comprehensive professional retraining program focused on mastering modern front-end technologies, including React, JavaScript, and web development best practices.',
     info: 'Yandex.Praktikum is an educational platform created by Yandex, one of the leading tech companies in Europe and Russia. The platform offers deep, practical training programs in software development, data analysis, and design. The Frontend Developer program provides intensive hands-on experience in JavaScript, React, and web development, preparing students for real-world projects and careers in IT.',
     logo: FaUniversity,

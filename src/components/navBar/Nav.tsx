@@ -54,7 +54,11 @@ const Nav = ({activeSection, moveToSection, toggleTheme, themeState}: Props) => 
             Home
           </span>
         </a>
-        <a className={`${styles.link} ${activeSection === 1 ? styles.active : ''}`} href="#" onClick={() => moveToSection('about')}>
+        <a
+          className={`${styles.link}
+          ${activeSection === 1 ? styles.active : ''}`}
+          href="#" onClick={() => moveToSection('about')}
+        >
           <span className={styles.linkIcon}>
             <IoPerson size={iconSize} />
           </span>
