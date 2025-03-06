@@ -15,6 +15,32 @@
     color: #ff4500 !important;
   }
   
+  /* Новые классы для скобок и имени */
+  .bracketClass {
+    font-weight: bold;
+    
+    color: #ff7f50 !important; /* Коралловый цвет для скобок */
+  }
+  
+  .nameClass {
+    font-weight: bold;
+    color: #00ff7f !important; /* Зеленый цвет для имени */
+  }
+  
+  /* Анимация для скобок */
+  .bracketAnimation {
+    animation: pulse 1.5s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+  
   @keyframes bounceIn {
     0% {
       transform: scale(0.3);

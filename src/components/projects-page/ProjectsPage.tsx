@@ -33,9 +33,8 @@ const ProjectsPage = () => {
 
     // Определяем размер иконок в зависимости от ширины экрана.
     const { width } = useWindowSize();
-    const arrowWidth = width > 768 ? 60 : width > 635 ? 45 : width > 550 ? 35 : 25;
-    const arrowHeight = width > 768 ? 100 : width > 635 ? 75 : width > 550 ? 55 : 40;
-    const iconSize = width > 768 ? 18 : width > 550 ? 17 : 16;
+    const iconSize = width > 768 ? 24 : width > 550 ? 22 : width > 375 ? 20 : 18;
+    
 
     // Управление пагинацией карточек.
     const [[page, direction], setPage] = useState([0, 0]);
@@ -47,18 +46,18 @@ const ProjectsPage = () => {
 
 
     return (
-        <Section style={{ width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+        <Section style={{width: '100%', justifyContent: 'center', alignItems: 'center'}}>
             <div className={styles.container}>
                 <h2 className={styles.heading}>
                     {"<My Projects />"}
                 </h2>
-                <div className={clsx(styles.arrow, styles.arrowStart)}>
-                    <IoChevronBack style={{ width: arrowWidth, height: arrowHeight }} onClick={() => paginate(-1)} />
-                </div>
-                <div className={clsx(styles.arrow, styles.arrowEnd)}>
-                    <IoChevronForward style={{ width: arrowWidth, height: arrowHeight }} onClick={() => paginate(1)} />
-                </div>
                 <motion.div className={styles.list}>
+                    <div className={clsx(styles.arrow, styles.arrowStart)} onClick={() => paginate(-1)}>
+                        <IoChevronBack style={{ width: iconSize, height: iconSize }} />
+                    </div>
+                    <div className={clsx(styles.arrow, styles.arrowEnd)} onClick={() => paginate(1)}>
+                        <IoChevronForward style={{ width: iconSize, height: iconSize }} />
+                    </div>
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             className={styles.project}

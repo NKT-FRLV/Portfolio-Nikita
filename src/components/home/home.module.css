@@ -26,7 +26,7 @@
 .heading h1 {
     font-size: 3.5rem;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
-    /* letter-spacing: -0.5px; */
+    letter-spacing: -0.5px;
     font-weight: 800;
 }
 
@@ -36,6 +36,37 @@
     line-height: 0.9;
     position: relative;
     text-shadow: none;
+}
+
+/* Новые стили для скобок и имени */
+.bracketClass {
+    font-family: "Oi", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 5px;
+    color: #ff7f50 !important;
+    text-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
+    animation: pulse 1.5s infinite alternate !important;
+}
+
+.nameClass {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #00ff7f !important;
+    text-shadow: 0 0 15px rgba(0, 255, 127, 0.7);
+    letter-spacing: 1px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
 }
 
 .n {

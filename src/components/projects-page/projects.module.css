@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 50px;
   }
   
   .project {
@@ -36,7 +37,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 85%;
+    width: 80%;
     min-height: 40%;
     max-height: 100%;
     padding: 1.5rem;
@@ -208,15 +209,18 @@
     cursor: pointer;
     background-color: rgba(0, 255, 127, 0.1);
     border: 1px solid rgba(0, 255, 127, 0.3);
-    border-radius: 50%;
+    border-radius: 8px;
     transition: all 0.3s ease;
     color: var(--color-button-text);
+    height: 70%;
+    width: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .arrow:hover {
-    transform: scale(1.1) translateY(-50%);
+    transform: scale(1.05) translateY(-50%);
     background-color: rgba(0, 255, 127, 0.2);
-    box-shadow: 0 0 15px rgba(0, 255, 127, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 127, 0.5);
   }
 
   .arrow:active {
@@ -224,11 +228,11 @@
   }
 
   .arrowStart {
-    left: -20px;
+    left: 0;
   }
 
   .arrowEnd {
-    right: -20px;
+    right: 0;
   }
 
   .projectFooter {
@@ -292,12 +296,22 @@
       align-self: flex-start;
     }
 
+    .list {
+      padding: 0 40px;
+    }
+
+    .arrow {
+      height: 50%;
+    }
+    
     .arrowStart {
-      left: -15px;
+      left: 0;
+      width: 40px;
     }
   
     .arrowEnd {
-      right: -15px;
+      right: 0;
+      width: 40px;
     }
   }
 
@@ -318,12 +332,18 @@
       font-size: 1.2rem;
     }
     
+    .list {
+      padding: 0 35px;
+    }
+    
     .arrowStart {
-      left: -10px;
+      left: 0;
+      width: 35px;
     }
   
     .arrowEnd {
-      right: -10px;
+      right: 0;
+      width: 35px;
     }
   }
 
@@ -372,12 +392,23 @@
       font-size: 1.3rem;
     }
 
+    .list {
+      padding: 0 30px;
+    }
+
+    .arrow {
+      height: 40%;
+      width: 25px;
+    }
+    
     .arrowStart {
-      left: -5px;
+      left: 0;
+      /* width: 30px; */
     }
   
     .arrowEnd {
-      right: -5px;
+      right: 0;
+      /* width: 30px; */
     }
   }
 
@@ -443,7 +474,6 @@
   }
 
   @media screen and (max-width: 375px) {
-
     .projectTitle {
       font-size: 1.7rem;
     }
@@ -462,5 +492,19 @@
 
     .projectCounter {
       font-size: 1.7rem;
+    }
+
+    .list {
+      padding: 0 25px;
+    }
+    
+    .arrowStart {
+      left: 0;
+      width: 25px;
+    }
+  
+    .arrowEnd {
+      right: 0;
+      width: 25px;
     }
   }
